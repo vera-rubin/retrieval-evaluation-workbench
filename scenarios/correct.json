@@ -1,0 +1,392 @@
+{
+  "schema": "hippo-memory-traces/v1",
+  "version": "synthetic-public-observables-1-correct",
+  "synthetic": true,
+  "authorship": {
+    "method": "model_authored_literal_examples",
+    "review": "Literal synthetic expectations and separate traces reviewed by automated tests and model-assisted inspection; no claim of human annotation or observed product execution. See ORACLE_REVIEW.md."
+  },
+  "cases": [
+    {
+      "id": "S01",
+      "steps": [
+        {
+          "id": "same_event_new_operation",
+          "observed": {
+            "operation_receipts": [
+              "op-a",
+              "op-b"
+            ],
+            "record_ids": [
+              "event-104"
+            ],
+            "cursor": 104
+          }
+        },
+        {
+          "id": "same_text_new_event",
+          "observed": {
+            "cursor": 105,
+            "record_ids": [
+              "event-104",
+              "event-105"
+            ]
+          }
+        },
+        {
+          "id": "changed_bytes_same_operation",
+          "observed": {
+            "new_records": 0,
+            "result": "IDEMPOTENCY_CONFLICT"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "steps": [
+        {
+          "id": "interrupted_before_commit",
+          "observed": {
+            "acknowledged": false,
+            "receipts": [],
+            "record_ids": []
+          }
+        },
+        {
+          "id": "retry_after_commit_before_response",
+          "observed": {
+            "acknowledged": true,
+            "durable_rebuild_intents": 1,
+            "lexical_state": "REBUILD_REQUIRED",
+            "record_ids": [
+              "A1"
+            ],
+            "receipts": [
+              "op-1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "steps": [
+        {
+          "id": "mechanically_valid_candidate",
+          "observed": {
+            "level": 2,
+            "owner": "A",
+            "epistemic": "claimed",
+            "human_clicks": 0,
+            "shared_records": 0,
+            "result": "ACCEPTED"
+          }
+        },
+        {
+          "id": "invented_source_verified_candidate",
+          "observed": {
+            "accepted_records": 0,
+            "result": "REJECTED",
+            "sensitive_rejected_payload_retained": false
+          }
+        },
+        {
+          "id": "replay_closed_erased_job",
+          "observed": {
+            "recreated_records": 0,
+            "result": "REPLAY_WINDOW_EXPIRED"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "steps": [
+        {
+          "id": "competing_corrections",
+          "observed": {
+            "new_body": "option available at r17",
+            "old_body": "option uncertain at r17",
+            "committed_transitions": 1,
+            "losing_result": "STALE_VERSION"
+          }
+        },
+        {
+          "id": "revision_bound_conflict",
+          "observed": {
+            "settled_winner": null,
+            "r18_conflict_ids": [],
+            "r17_conflict_ids": [
+              "H1",
+              "H2"
+            ]
+          }
+        },
+        {
+          "id": "historical_day2_view",
+          "observed": {
+            "current_access_required": true,
+            "later_counterevidence_visible": false,
+            "visible_ids": [
+              "A2"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "steps": [
+        {
+          "id": "owner_A_queries_B",
+          "observed": {
+            "model_input_ids": [],
+            "aliases": [],
+            "snippets": [],
+            "relation_degrees": [],
+            "counts": [],
+            "record_ids": [],
+            "titles": []
+          }
+        },
+        {
+          "id": "direct_forbidden_id",
+          "observed": {
+            "body": null,
+            "result": "NOT_FOUND"
+          }
+        },
+        {
+          "id": "direct_missing_id",
+          "observed": {
+            "body": null,
+            "result": "NOT_FOUND"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "steps": [
+        {
+          "id": "index20_canonical22",
+          "observed": {
+            "watermark": 22,
+            "complete": true,
+            "source": "lexical_delta",
+            "revoked_hit_returned": false,
+            "returned_ids": [
+              "fresh-21"
+            ]
+          }
+        },
+        {
+          "id": "selection_changes_before_release",
+          "observed": {
+            "claimed_final_watermark": null,
+            "released_bodies": [],
+            "result": "STALE_SELECTION"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "steps": [
+        {
+          "id": "full_fetch",
+          "observed": {
+            "complete": true,
+            "utf8_bytes": 9,
+            "unicode_characters": 6,
+            "body": "Café\n猫",
+            "provenance": [
+              {
+                "availability": "retained",
+                "source_id": "receipt-cafe",
+                "revision": "r17"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bounded_pack",
+          "observed": {
+            "complete": false,
+            "omitted_ids": [
+              "long-record"
+            ],
+            "included_body": null
+          }
+        },
+        {
+          "id": "forbidden_evidence",
+          "observed": {
+            "fetched_external_sources": 0,
+            "result": "NOT_FOUND"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "steps": [
+        {
+          "id": "extractor_quota_exhausted",
+          "observed": {
+            "paid_fallback_calls": 0,
+            "deterministic_save": "COMMITTED",
+            "assistance": "UNAVAILABLE"
+          }
+        },
+        {
+          "id": "stale_and_invented_rerank_ids",
+          "observed": {
+            "canonical_fetch_used": true,
+            "returned_ids": [
+              "A1"
+            ],
+            "fallback": "deterministic",
+            "accepted_model_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "steps": [
+        {
+          "id": "same_owner_fresh_session",
+          "observed": {
+            "action_outcome": "UNKNOWN",
+            "external_action_replays": 0,
+            "restored_capability_tokens": [],
+            "hydrated_ids": [
+              "A1"
+            ],
+            "authenticated_epoch": 8,
+            "owner": "A"
+          }
+        },
+        {
+          "id": "old_writer_epoch7",
+          "observed": {
+            "committed_writes": 0,
+            "result": "FENCED"
+          }
+        },
+        {
+          "id": "new_principal_old_display_name",
+          "observed": {
+            "hydrated_ids": [],
+            "result": "DENIED"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "steps": [
+        {
+          "id": "intent_durable_copy_cleanup_pending",
+          "observed": {
+            "pending_copies": [
+              "backup-1"
+            ],
+            "erasure_complete": false,
+            "publication": "DENIED",
+            "reads": "DENIED"
+          }
+        },
+        {
+          "id": "restore_without_registry_freshness",
+          "observed": {
+            "resurrected_records": 0,
+            "serving": "UNAVAILABLE"
+          }
+        },
+        {
+          "id": "erased_input_stale_job",
+          "observed": {
+            "accepted_records": 0,
+            "result": "REJECTED"
+          }
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "steps": [
+        {
+          "id": "reviewed_draft",
+          "observed": {
+            "review": "PASS",
+            "publication": "READY",
+            "version": 2
+          }
+        },
+        {
+          "id": "unreviewed_draft",
+          "observed": {
+            "review": "MISSING",
+            "result": "DENIED",
+            "published_versions": []
+          }
+        },
+        {
+          "id": "review_pass_but_source_missing",
+          "observed": {
+            "review": "PASS",
+            "result": "DENIED",
+            "published_versions": []
+          }
+        },
+        {
+          "id": "proposal_is_not_publication",
+          "observed": {
+            "proposal": "ACCEPTED_FOR_REVIEW",
+            "publication": "NOT_PUBLISHED",
+            "published_versions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "steps": [
+        {
+          "id": "policy_revoked_before_commit",
+          "observed": {
+            "released_bodies": [],
+            "shared_records": 0,
+            "result": "DENIED"
+          }
+        },
+        {
+          "id": "committed_receipt_reconciled_after_expiry",
+          "observed": {
+            "new_publications": 0,
+            "result": "EXISTING_RECEIPT"
+          }
+        },
+        {
+          "id": "canonical_status_revoked_under_pressure",
+          "observed": {
+            "ttl_deleted_records": 0,
+            "new_write": "BACKPRESSURE",
+            "retained_body": "durable canonical belief",
+            "status": "revoked"
+          }
+        },
+        {
+          "id": "needed_evidence_without_expiry_policy",
+          "observed": {
+            "automatic_expiry": false,
+            "raw_evidence": "RETAINED"
+          }
+        }
+      ]
+    }
+  ]
+}

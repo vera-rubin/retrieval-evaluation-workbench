@@ -1,0 +1,15 @@
+[project]
+name = "retrieval-evaluation-workbench"
+version = "1.0.0"
+description = "Reproducible local lexical, semantic, and hybrid retrieval evaluation"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = "Apache-2.0"
+authors = [{name = "Nathan John Chandrasekar"}]
+keywords = ["information-retrieval", "evaluation", "reproducibility"]
+
+[project.urls]
+Repository = "https://github.com/vera-rubin/retrieval-evaluation-workbench"
+
+# Source-checkout distribution: use the hash-locked staging guide, not pip install .
+# No build backend, package index upload, or publishing workflow is configured.

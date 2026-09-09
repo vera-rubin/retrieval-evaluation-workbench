@@ -1,0 +1,14 @@
+.artifacts/
+.local-assets/
+.scratch/
+.venv/
+__pycache__/
+*.py[cod]
+*.db*
+*.log
+# Reproducible raw/derived duplicates; compressed final evidence is retained.
+results/**/run.json
+results/**/run.partial.json
+results/**/worker-result.json
+results/**/analysis.json
+results/**/report.json

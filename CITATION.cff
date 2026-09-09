@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the software and version. Version 1.0.0 is currently a release candidate, not a published release."
+type: software
+title: "Reproducible Retrieval Evaluation: A Workbench for Lexical, Semantic, and Hybrid Search"
+version: 1.0.0
+authors:
+  - given-names: Nathan John
+    family-names: Chandrasekar
+    orcid: "https://orcid.org/0009-0003-9702-8164"
+repository-code: "https://github.com/vera-rubin/retrieval-evaluation-workbench"
+license: Apache-2.0
+keywords:
+  - information retrieval
+  - reproducibility
+  - lexical search
+  - semantic search
+  - hybrid search
+  - research software
+abstract: >-
+  I present a standalone evaluation workbench for lexical, semantic, and hybrid
+  retrieval over a fixed synthetic corpus. It compares SQLite FTS5 BM25,
+  BGE-small-en-v1.5, all-MiniLM-L6-v2, and two reciprocal-rank-fusion combinations.
+  The software includes 300 synthetic records, 188 explicitly labeled queries,
+  scope and status eligibility, exact full-record checks, result-contract tests,
+  supplied-trace checking, compatible-run comparison, and static reports. Pinned
+  model revisions and dependencies support local CPU reproduction on the tested
+  Windows CPython 3.13 x64 platform. An accompanying technical report documents
+  methods, measured re-evaluation, and limitations. The known historical query
+  split is re-evaluated without retuning; it is not a newly blinded experiment.
+  The fixtures and labels are model-authored synthetic examples, not a
+  human-validated benchmark. This is software with an accompanying report,
+  not a peer-reviewed journal publication.
+
+  AI use: OpenAI Codex assisted software development, synthetic-fixture and label
+  generation, analysis, review, visualization code, and manuscript preparation;
+  ChatGPT supported earlier planning. I retain responsibility for the approved
+  published content.

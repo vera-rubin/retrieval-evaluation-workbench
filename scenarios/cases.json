@@ -1,0 +1,404 @@
+{
+  "schema": "hippo-memory-scenarios/v1",
+  "version": "synthetic-public-observables-1",
+  "synthetic": true,
+  "authorship": {
+    "method": "model_authored_literal_examples",
+    "review": "Literal synthetic expectations and separate traces reviewed by automated tests and model-assisted inspection; no claim of human annotation or observed product execution. See ORACLE_REVIEW.md."
+  },
+  "cases": [
+    {
+      "id": "S01",
+      "title": "Event identity differs from operation identity and content",
+      "steps": [
+        {
+          "id": "same_event_new_operation",
+          "expect": {
+            "record_ids": [
+              "event-104"
+            ],
+            "operation_receipts": [
+              "op-a",
+              "op-b"
+            ],
+            "cursor": 104
+          }
+        },
+        {
+          "id": "same_text_new_event",
+          "expect": {
+            "record_ids": [
+              "event-104",
+              "event-105"
+            ],
+            "cursor": 105
+          }
+        },
+        {
+          "id": "changed_bytes_same_operation",
+          "expect": {
+            "result": "IDEMPOTENCY_CONFLICT",
+            "new_records": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "Interrupted acceptance preserves transactional boundaries",
+      "steps": [
+        {
+          "id": "interrupted_before_commit",
+          "expect": {
+            "record_ids": [],
+            "receipts": [],
+            "acknowledged": false
+          }
+        },
+        {
+          "id": "retry_after_commit_before_response",
+          "expect": {
+            "record_ids": [
+              "A1"
+            ],
+            "receipts": [
+              "op-1"
+            ],
+            "acknowledged": true,
+            "lexical_state": "REBUILD_REQUIRED",
+            "durable_rebuild_intents": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "Automatic candidates remain private claimed and invalid ones reject",
+      "steps": [
+        {
+          "id": "mechanically_valid_candidate",
+          "expect": {
+            "result": "ACCEPTED",
+            "owner": "A",
+            "level": 2,
+            "epistemic": "claimed",
+            "shared_records": 0,
+            "human_clicks": 0
+          }
+        },
+        {
+          "id": "invented_source_verified_candidate",
+          "expect": {
+            "result": "REJECTED",
+            "accepted_records": 0,
+            "sensitive_rejected_payload_retained": false
+          }
+        },
+        {
+          "id": "replay_closed_erased_job",
+          "expect": {
+            "result": "REPLAY_WINDOW_EXPIRED",
+            "recreated_records": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "Correction races and scoped conflicts preserve history",
+      "steps": [
+        {
+          "id": "competing_corrections",
+          "expect": {
+            "committed_transitions": 1,
+            "losing_result": "STALE_VERSION",
+            "old_body": "option uncertain at r17",
+            "new_body": "option available at r17"
+          }
+        },
+        {
+          "id": "revision_bound_conflict",
+          "expect": {
+            "r17_conflict_ids": [
+              "H1",
+              "H2"
+            ],
+            "r18_conflict_ids": [],
+            "settled_winner": null
+          }
+        },
+        {
+          "id": "historical_day2_view",
+          "expect": {
+            "visible_ids": [
+              "A2"
+            ],
+            "later_counterevidence_visible": false,
+            "current_access_required": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "Denied owner results do not expose metadata",
+      "steps": [
+        {
+          "id": "owner_A_queries_B",
+          "expect": {
+            "record_ids": [],
+            "titles": [],
+            "snippets": [],
+            "aliases": [],
+            "counts": [],
+            "relation_degrees": [],
+            "model_input_ids": []
+          }
+        },
+        {
+          "id": "direct_forbidden_id",
+          "expect": {
+            "result": "NOT_FOUND",
+            "body": null
+          }
+        },
+        {
+          "id": "direct_missing_id",
+          "expect": {
+            "result": "NOT_FOUND",
+            "body": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Stale index and changed selection are explicit",
+      "steps": [
+        {
+          "id": "index20_canonical22",
+          "expect": {
+            "returned_ids": [
+              "fresh-21"
+            ],
+            "revoked_hit_returned": false,
+            "source": "lexical_delta",
+            "complete": true,
+            "watermark": 22
+          }
+        },
+        {
+          "id": "selection_changes_before_release",
+          "expect": {
+            "result": "STALE_SELECTION",
+            "released_bodies": [],
+            "claimed_final_watermark": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "Full Unicode fetch is exact and context omission honest",
+      "steps": [
+        {
+          "id": "full_fetch",
+          "expect": {
+            "body": "Café\n猫",
+            "unicode_characters": 6,
+            "utf8_bytes": 9,
+            "complete": true,
+            "provenance": [
+              {
+                "source_id": "receipt-cafe",
+                "revision": "r17",
+                "availability": "retained"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bounded_pack",
+          "expect": {
+            "included_body": null,
+            "omitted_ids": [
+              "long-record"
+            ],
+            "complete": false
+          }
+        },
+        {
+          "id": "forbidden_evidence",
+          "expect": {
+            "result": "NOT_FOUND",
+            "fetched_external_sources": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "Unavailable assistance and stale caches retain deterministic operation",
+      "steps": [
+        {
+          "id": "extractor_quota_exhausted",
+          "expect": {
+            "assistance": "UNAVAILABLE",
+            "deterministic_save": "COMMITTED",
+            "paid_fallback_calls": 0
+          }
+        },
+        {
+          "id": "stale_and_invented_rerank_ids",
+          "expect": {
+            "accepted_model_ids": [],
+            "fallback": "deterministic",
+            "returned_ids": [
+              "A1"
+            ],
+            "canonical_fetch_used": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "Replacement identity and old-writer fencing remain explicit",
+      "steps": [
+        {
+          "id": "same_owner_fresh_session",
+          "expect": {
+            "owner": "A",
+            "authenticated_epoch": 8,
+            "hydrated_ids": [
+              "A1"
+            ],
+            "restored_capability_tokens": [],
+            "external_action_replays": 0,
+            "action_outcome": "UNKNOWN"
+          }
+        },
+        {
+          "id": "old_writer_epoch7",
+          "expect": {
+            "result": "FENCED",
+            "committed_writes": 0
+          }
+        },
+        {
+          "id": "new_principal_old_display_name",
+          "expect": {
+            "result": "DENIED",
+            "hydrated_ids": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "Erasure and restored stale registries block resurrection",
+      "steps": [
+        {
+          "id": "intent_durable_copy_cleanup_pending",
+          "expect": {
+            "reads": "DENIED",
+            "publication": "DENIED",
+            "erasure_complete": false,
+            "pending_copies": [
+              "backup-1"
+            ]
+          }
+        },
+        {
+          "id": "restore_without_registry_freshness",
+          "expect": {
+            "serving": "UNAVAILABLE",
+            "resurrected_records": 0
+          }
+        },
+        {
+          "id": "erased_input_stale_job",
+          "expect": {
+            "result": "REJECTED",
+            "accepted_records": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "Review, proposal and publication outcomes are distinct",
+      "steps": [
+        {
+          "id": "reviewed_draft",
+          "expect": {
+            "review": "PASS",
+            "publication": "READY",
+            "version": 2
+          }
+        },
+        {
+          "id": "unreviewed_draft",
+          "expect": {
+            "review": "MISSING",
+            "result": "DENIED",
+            "published_versions": []
+          }
+        },
+        {
+          "id": "review_pass_but_source_missing",
+          "expect": {
+            "review": "PASS",
+            "result": "DENIED",
+            "published_versions": []
+          }
+        },
+        {
+          "id": "proposal_is_not_publication",
+          "expect": {
+            "proposal": "ACCEPTED_FOR_REVIEW",
+            "publication": "NOT_PUBLISHED",
+            "published_versions": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "Publication fences and durable retention survive status changes",
+      "steps": [
+        {
+          "id": "policy_revoked_before_commit",
+          "expect": {
+            "result": "DENIED",
+            "shared_records": 0,
+            "released_bodies": []
+          }
+        },
+        {
+          "id": "committed_receipt_reconciled_after_expiry",
+          "expect": {
+            "result": "EXISTING_RECEIPT",
+            "new_publications": 0
+          }
+        },
+        {
+          "id": "canonical_status_revoked_under_pressure",
+          "expect": {
+            "status": "revoked",
+            "retained_body": "durable canonical belief",
+            "new_write": "BACKPRESSURE",
+            "ttl_deleted_records": 0
+          }
+        },
+        {
+          "id": "needed_evidence_without_expiry_policy",
+          "expect": {
+            "raw_evidence": "RETAINED",
+            "automatic_expiry": false
+          }
+        }
+      ]
+    }
+  ]
+}
