@@ -1,0 +1,5 @@
+# Optional report rendering environment; separate from the retrieval environment.
+reportlab==4.4.9
+Pillow==12.3.0
+charset-normalizer==3.5.1
+pypdf==6.10.0

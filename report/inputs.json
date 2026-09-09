@@ -1,0 +1,18 @@
+{
+  "schema": "retrieval-evaluation-report-inputs/v1",
+  "purpose": "Exact raw observations bound to the prepared manuscript; this is not publication approval.",
+  "inputs": [
+    {
+      "file": "results/release-development/run.json.gz",
+      "sha256": "d498079e25fd560f74f48c7d6ea5dee080d97ce461b32a1d86bb60f05349ebc8"
+    },
+    {
+      "file": "results/release-heldout/run.json.gz",
+      "sha256": "48d796177c2ecf9289a72e5d075d17c4dfa9cc294f28fc3130e381c4ef382790"
+    },
+    {
+      "file": "results/release-heldout-repeat/run.json.gz",
+      "sha256": "7d58cd828a9d9a763b107b8b1bc72586994a8175c38b2b9d7bc5c7277456bf8b"
+    }
+  ]
+}

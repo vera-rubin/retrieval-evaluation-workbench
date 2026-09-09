@@ -17,6 +17,27 @@ retrieval observations, distinguishes missing execution from bad retrieval,
 compares compatible runs, and produces JSON, Markdown, and static HTML.
 Twelve supplied-trace examples exercise observable-result checking.
 
+## Findings from the standalone re-evaluation
+
+On the 79 answerable queries in the original held-out split, BGE has the highest
+nDCG@10 (0.9588); MiniLM has slightly higher recall@10 (0.9863 versus 0.9831).
+Lexical recall is 0.9363. The two equal-weight hybrids do not consistently improve
+over their semantic components. A held-out repeat preserves all quality scores.
+All five methods return candidates for all 15 unanswerable queries, so these
+scores do not establish answerability.
+
+I report the new primary and repeat timings together: BGE's warm p50 is
+20.74 / 11.69 ms, and MiniLM's is 11.95 / 5.83 ms, each over 94 queries per pass.
+The variation is part of the result. These are local sampled measurements,
+not service guarantees or independently cold model starts.
+
+Read the [technical report](report/report.html), its [PDF](report/report.pdf),
+or [editable manuscript](report/manuscript.md). The [results ledger](results/README.md)
+links the public raw evidence, per-query reports, and validation receipts.
+The assembled candidate executes [171 evaluator tests](results/validation/evaluator-171-candidate.json)
+with no skips or failures. The initial clean source archive independently
+executed 164 tests before the seven metadata checks were added.
+
 ## Installation and quick reproduction
 
 The supported initial platform is Windows x64 with CPython 3.13.15. The exact

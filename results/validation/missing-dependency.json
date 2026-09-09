@@ -1,0 +1,47 @@
+{
+  "schema": "release-missing-dependency-check/v1",
+  "created_at": "2026-09-09T20:29:01.569573+00:00",
+  "expected_exit": 1,
+  "actual_exit": 1,
+  "status": "NOT_RUN",
+  "method_errors": [
+    "RetrievalMissing: APSW_NOT_STAGED"
+  ],
+  "query_observations": 0,
+  "identity": {
+    "source_digest": "467ed8078f588aca1104e2440b6aa05bb52c51189ad08350d106bb4d9629ab13",
+    "source_files": {
+      "hippo_eval/__init__.py": "fa6cb01413a1449fe060b519a99479eabb699333a362798c2c5822c3c26c118e",
+      "hippo_eval/bootstrap.py": "6d947d782e304d32335f44d112bcb39f1fb23f1e70a3983753dbe8f7b60f9bb8",
+      "hippo_eval/cli.py": "78b2dbd83fcea8b65b9cf998d818604299cb162f5de0ed77c77aa2e3d5482535",
+      "hippo_eval/contracts.py": "9eba34f328738af2b06376fe8fc054191b08d23b15bd2e17ba1f5febd112c91e",
+      "hippo_eval/fixtures.py": "1b3784748cbc8fd6b2020ee60feeab779fc0a32dfe737108560ad4123a818700",
+      "hippo_eval/metrics.py": "a71f957d4afb3f6fa8867f5baec0ebf06bfe310277490892264ee2b4db9b0957",
+      "hippo_eval/reporting.py": "c7594bd65b0b804fbfd9479ee2e797f6fb8fa81196aa2c2e30cd289bce6a5a31",
+      "hippo_eval/retrieval.py": "91502db1083576d6b1de203b287c9c2dc7a1a8343a360f966ee7002096216387",
+      "hippo_eval/scenarios.py": "fb9df058f9c1d322b84530c43f65aa8266c30eb4bc4a0a9ae66fa159249b6d16",
+      "workbench.py": "4be63e41490914b459740a5c884120e4c9a4ad36eae137c3cde169db71d51bd8"
+    },
+    "git_head": null,
+    "source_origin": "source_archive",
+    "dependencies": {
+      "apsw": null,
+      "sqlite-vec": null,
+      "torch": null,
+      "transformers": null,
+      "tokenizers": null,
+      "numpy": null,
+      "safetensors": null,
+      "huggingface-hub": null,
+      "sentence-transformers": null,
+      "psutil": null,
+      "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+      "python_executable_sha256": "85b71d8c6ec1905935f74be0c9869aae198d00e98f39df699ec66f9c5a84cecd"
+    },
+    "dependency_digest": "f3362822ad3edc6467216e2a73d684ae11ae631933d4a6990fcf4a8cef3cfe25",
+    "metric_version": "hippo-metrics/v1",
+    "fixture_digest": "615b98beee8789b849ed0255f389f5308956af34e67b96fa1d8764888a61510b"
+  },
+  "scope": "Fresh standalone source with selected empty artifact root; no model or database execution occurred",
+  "passed": true
+}

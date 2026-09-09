@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="335" viewBox="0 0 720 335" role="img" aria-labelledby="title desc">
+<title id="title">Recall and nDCG for five retrieval methods</title>
+<desc id="desc">Exact observed heldout macro averages over 79 answerable queries; zero-baseline bars without uncertainty intervals.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<text x="12" y="24" font-family="Arial, sans-serif" font-size="18" fill="#18364B">Heldout retrieval quality (79 answerable queries)</text>
+<line x1="145" y1="52" x2="145" y2="309" stroke="#DFE6EB"/>
+<text x="136" y="326" font-family="Arial, sans-serif" font-size="11" fill="#526373">0.00</text>
+<line x1="271.25" y1="52" x2="271.25" y2="309" stroke="#DFE6EB"/>
+<text x="262.25" y="326" font-family="Arial, sans-serif" font-size="11" fill="#526373">0.25</text>
+<line x1="397.5" y1="52" x2="397.5" y2="309" stroke="#DFE6EB"/>
+<text x="388.5" y="326" font-family="Arial, sans-serif" font-size="11" fill="#526373">0.50</text>
+<line x1="523.75" y1="52" x2="523.75" y2="309" stroke="#DFE6EB"/>
+<text x="514.75" y="326" font-family="Arial, sans-serif" font-size="11" fill="#526373">0.75</text>
+<line x1="650" y1="52" x2="650" y2="309" stroke="#DFE6EB"/>
+<text x="641" y="326" font-family="Arial, sans-serif" font-size="11" fill="#526373">1.00</text>
+<text x="12" y="78" font-family="Arial, sans-serif" font-size="14" fill="#18364B">FTS5 BM25</text>
+<rect x="145" y="60" width="472.82489451476795" height="15" fill="#007F83"/>
+<text x="622.824894514768" y="72" font-family="Arial, sans-serif" font-size="11" fill="#007F83">0.936</text>
+<rect x="145" y="80" width="458.74262535808884" height="15" fill="#18364B"/>
+<text x="608.7426253580888" y="92" font-family="Arial, sans-serif" font-size="11" fill="#18364B">0.908</text>
+<text x="12" y="127" font-family="Arial, sans-serif" font-size="14" fill="#18364B">BGE-small</text>
+<rect x="145" y="109" width="496.47679324894517" height="15" fill="#007F83"/>
+<text x="646.4767932489451" y="121" font-family="Arial, sans-serif" font-size="11" fill="#007F83">0.983</text>
+<rect x="145" y="129" width="484.20038649078936" height="15" fill="#18364B"/>
+<text x="634.2003864907894" y="141" font-family="Arial, sans-serif" font-size="11" fill="#18364B">0.959</text>
+<text x="12" y="176" font-family="Arial, sans-serif" font-size="14" fill="#18364B">MiniLM</text>
+<rect x="145" y="158" width="498.074894514768" height="15" fill="#007F83"/>
+<text x="648.074894514768" y="170" font-family="Arial, sans-serif" font-size="11" fill="#007F83">0.986</text>
+<rect x="145" y="178" width="473.6217151034754" height="15" fill="#18364B"/>
+<text x="623.6217151034755" y="190" font-family="Arial, sans-serif" font-size="11" fill="#18364B">0.938</text>
+<text x="12" y="225" font-family="Arial, sans-serif" font-size="14" fill="#18364B">FTS+BGE</text>
+<rect x="145" y="207" width="493.60021097046416" height="15" fill="#007F83"/>
+<text x="643.6002109704641" y="219" font-family="Arial, sans-serif" font-size="11" fill="#007F83">0.977</text>
+<rect x="145" y="227" width="473.235276853367" height="15" fill="#18364B"/>
+<text x="623.2352768533669" y="239" font-family="Arial, sans-serif" font-size="11" fill="#18364B">0.937</text>
+<text x="12" y="274" font-family="Arial, sans-serif" font-size="14" fill="#18364B">FTS+MiniLM</text>
+<rect x="145" y="256" width="493.2805907172996" height="15" fill="#007F83"/>
+<text x="643.2805907172997" y="268" font-family="Arial, sans-serif" font-size="11" fill="#007F83">0.977</text>
+<rect x="145" y="276" width="474.86401892273307" height="15" fill="#18364B"/>
+<text x="624.8640189227331" y="288" font-family="Arial, sans-serif" font-size="11" fill="#18364B">0.940</text>
+<rect x="470" y="12" width="11" height="11" fill="#007F83"/>
+<text x="487" y="23" font-family="Arial, sans-serif" font-size="12" fill="#18364B">Recall@10</text>
+<rect x="580" y="12" width="11" height="11" fill="#18364B"/>
+<text x="597" y="23" font-family="Arial, sans-serif" font-size="12" fill="#18364B">nDCG@10</text>
+</svg>

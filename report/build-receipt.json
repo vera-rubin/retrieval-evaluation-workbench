@@ -1,0 +1,33 @@
+{
+  "schema": "retrieval-evaluation-report-build/v1",
+  "raw_inputs": [
+    {
+      "raw_file": "results/release-development/run.json.gz",
+      "raw_sha256": "d498079e25fd560f74f48c7d6ea5dee080d97ce461b32a1d86bb60f05349ebc8"
+    },
+    {
+      "raw_file": "results/release-heldout/run.json.gz",
+      "raw_sha256": "48d796177c2ecf9289a72e5d075d17c4dfa9cc294f28fc3130e381c4ef382790"
+    },
+    {
+      "raw_file": "results/release-heldout-repeat/run.json.gz",
+      "raw_sha256": "7d58cd828a9d9a763b107b8b1bc72586994a8175c38b2b9d7bc5c7277456bf8b"
+    }
+  ],
+  "manuscript_sha256": "cd056dfde1f7f5a4bef299d5086f2b67aae5dbd9287d0f59e2740a1a450effb9",
+  "builder_sha256": "2fe30fb2e72bdb9c55e19da4b07cc953777fe3d9ea71d9e33ff6a7e2365a9a95",
+  "inputs_manifest_sha256": "4ed12495ca4f30b5ec523fc832ca726753f00ff7b8c46c76a2492ce1c1a8746f",
+  "dependencies": {
+    "reportlab": "4.4.9",
+    "Pillow": "12.3.0",
+    "charset-normalizer": "3.5.1",
+    "pypdf": "6.10.0"
+  },
+  "outputs": {
+    "report.md": "a42b9806deca03a93ff673bdc8d4b982b7db926c2074e60e9e97e5511f9e77a1",
+    "report.html": "d71e9c45442c77d04892a5e9a9af53cda6db2fa2a735f1d458866d06084da1c6",
+    "report.pdf": "0742c1a57ec186ed90754002f9a079f3821463de80a41d89ca30c7fd46584300",
+    "figures/quality.svg": "9ef55c1ca57f69386ddd17c9a4c5e1d120e07579d89a75e37da8260c017b2bb3"
+  },
+  "scope": "Observed synthetic retrieval results; known query splits; no retuning or inferential significance claims"
+}

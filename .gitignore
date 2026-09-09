@@ -2,6 +2,7 @@
 .local-assets/
 .scratch/
 .venv/
+.report-venv/
 __pycache__/
 *.py[cod]
 *.db*

@@ -1,0 +1,12 @@
+{
+  "peak_rss_bytes": 494776320,
+  "rss_samples": 340,
+  "sample_interval_ms": 100,
+  "elapsed_ms": 34159.07180000795,
+  "limit_bytes": 2147483648,
+  "failure": null,
+  "child_exit_code": 0,
+  "monitored_pid": 25156,
+  "scope": "direct_base_interpreter_owned_inference_process_only",
+  "guard": "100ms sampled RSS watchdog; not an OS hard allocation limit"
+}

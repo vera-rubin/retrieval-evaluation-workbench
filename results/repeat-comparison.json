@@ -1,0 +1,5802 @@
+{
+  "schema": "hippo-eval-comparison/v1",
+  "compatible": true,
+  "reasons": [],
+  "before_run_id": "4d0aa399388f402ca0d1d2a8e33c17d3",
+  "after_run_id": "5127d48ade4e4b11b983f717b9c19c7c",
+  "source_changed": false,
+  "methods": [
+    {
+      "name": "bge",
+      "compatible": true,
+      "reasons": [],
+      "before_status": "EXECUTED",
+      "after_status": "EXECUTED",
+      "comparable": true,
+      "deltas": {
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_abstention_rate": 0.0,
+        "error_queries": 0,
+        "unavailable_queries": 0,
+        "unanswerable_false_positive_queries": 0,
+        "latency_mean_ms": -9.320426592974863,
+        "latency_p50_ms": -9.051400003954768,
+        "latency_p95_ms": -12.752899900078773,
+        "latency_max_ms": -14.742899977136403
+      },
+      "categories": {
+        "code-references": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "deleted-payload": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "disagreement": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "historical-revisions": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "identifiers": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "long-tail-evidence": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "missing-evidence": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "multi-record": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "observations": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "paraphrases": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "preferences": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "project-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "shared-verified-memory": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "supersession": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "task-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "unsupported-hypotheses": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        }
+      },
+      "query_deltas": [
+        {
+          "query_id": "q-birch_notebooks-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-code",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-garden",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-historical",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-pref",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-disagreement",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        }
+      ],
+      "regressions": [],
+      "regressed": false
+    },
+    {
+      "name": "hybrid_bge",
+      "compatible": true,
+      "reasons": [],
+      "before_status": "EXECUTED",
+      "after_status": "EXECUTED",
+      "comparable": true,
+      "deltas": {
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_abstention_rate": 0.0,
+        "error_queries": 0,
+        "unavailable_queries": 0,
+        "unanswerable_false_positive_queries": 0,
+        "latency_mean_ms": -7.909191487495729,
+        "latency_p50_ms": -7.8336500155273825,
+        "latency_p95_ms": -10.980900027789176,
+        "latency_max_ms": -13.086300052236766
+      },
+      "categories": {
+        "code-references": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "deleted-payload": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "disagreement": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "historical-revisions": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "identifiers": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "long-tail-evidence": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "missing-evidence": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "multi-record": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "observations": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "paraphrases": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "preferences": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "project-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "shared-verified-memory": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "supersession": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "task-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "unsupported-hypotheses": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        }
+      },
+      "query_deltas": [
+        {
+          "query_id": "q-birch_notebooks-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-code",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-garden",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-historical",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-pref",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-disagreement",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        }
+      ],
+      "regressions": [],
+      "regressed": false
+    },
+    {
+      "name": "hybrid_minilm",
+      "compatible": true,
+      "reasons": [],
+      "before_status": "EXECUTED",
+      "after_status": "EXECUTED",
+      "comparable": true,
+      "deltas": {
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_abstention_rate": 0.0,
+        "error_queries": 0,
+        "unavailable_queries": 0,
+        "unanswerable_false_positive_queries": 0,
+        "latency_mean_ms": -2.78516914608809,
+        "latency_p50_ms": -2.7524500037543476,
+        "latency_p95_ms": -3.414299979340285,
+        "latency_max_ms": -7.152199978008866
+      },
+      "categories": {
+        "code-references": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "deleted-payload": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "disagreement": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "historical-revisions": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "identifiers": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "long-tail-evidence": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "missing-evidence": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "multi-record": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "observations": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "paraphrases": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "preferences": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "project-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "shared-verified-memory": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "supersession": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "task-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "unsupported-hypotheses": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        }
+      },
+      "query_deltas": [
+        {
+          "query_id": "q-birch_notebooks-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-code",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-garden",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-historical",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-pref",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-disagreement",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        }
+      ],
+      "regressions": [],
+      "regressed": false
+    },
+    {
+      "name": "lexical",
+      "compatible": true,
+      "reasons": [],
+      "before_status": "EXECUTED",
+      "after_status": "EXECUTED",
+      "comparable": true,
+      "deltas": {
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_abstention_rate": 0.0,
+        "error_queries": 0,
+        "unavailable_queries": 0,
+        "unanswerable_false_positive_queries": 0,
+        "latency_mean_ms": -0.9494989359890051,
+        "latency_p50_ms": -1.1423500254750252,
+        "latency_p95_ms": -1.5463000163435936,
+        "latency_max_ms": -2.2344000171869993
+      },
+      "categories": {
+        "code-references": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "deleted-payload": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "disagreement": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "historical-revisions": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "identifiers": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "long-tail-evidence": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "missing-evidence": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "multi-record": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "observations": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "paraphrases": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "preferences": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "project-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "shared-verified-memory": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "supersession": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "task-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "unsupported-hypotheses": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        }
+      },
+      "query_deltas": [
+        {
+          "query_id": "q-birch_notebooks-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-code",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-garden",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-historical",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-pref",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-disagreement",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        }
+      ],
+      "regressions": [],
+      "regressed": false
+    },
+    {
+      "name": "minilm",
+      "compatible": true,
+      "reasons": [],
+      "before_status": "EXECUTED",
+      "after_status": "EXECUTED",
+      "comparable": true,
+      "deltas": {
+        "recall_at_k": 0.0,
+        "precision_at_k": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_k": 0.0,
+        "unanswerable_abstention_rate": 0.0,
+        "error_queries": 0,
+        "unavailable_queries": 0,
+        "unanswerable_false_positive_queries": 0,
+        "latency_mean_ms": -6.035535110834431,
+        "latency_p50_ms": -6.115650001447648,
+        "latency_p95_ms": -6.667899957392365,
+        "latency_max_ms": -8.814300002995878
+      },
+      "categories": {
+        "code-references": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "deleted-payload": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "disagreement": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "historical-revisions": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "identifiers": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "long-tail-evidence": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "missing-evidence": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        },
+        "multi-record": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "observations": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "paraphrases": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "preferences": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "project-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "shared-verified-memory": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "supersession": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "task-scope": {
+          "recall_at_k": 0.0,
+          "precision_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "unsupported-hypotheses": {
+          "recall_at_k": null,
+          "precision_at_k": null,
+          "mrr": null,
+          "ndcg_at_k": null
+        }
+      },
+      "query_deltas": [
+        {
+          "query_id": "q-birch_notebooks-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-birch_notebooks-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-code",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-cobalt_inventory-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-copper_checkout-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-delta_routing-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-deleted",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-juniper_audio-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-kestrel_ownership-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-marina_metrics-tail",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-opal_import-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-garden",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-historical",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-orchard_irrigation-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-quartz_signatures-pref",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-slate_geo-shared",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-spruce_flags-unsupported",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-observed",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-tide_tickets-preference",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-disagreement",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-missing",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-violet_calibration-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-history",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-identifier",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-multi",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-paraphrase",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-scope",
+          "metrics": {
+            "recall_at_k": 0.0,
+            "precision_at_k": 0.0,
+            "mrr": 0.0,
+            "ndcg_at_k": 0.0
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        },
+        {
+          "query_id": "q-willow_scheduler-unapproved",
+          "metrics": {
+            "recall_at_k": null,
+            "precision_at_k": null,
+            "mrr": null,
+            "ndcg_at_k": null
+          },
+          "before_status": "OK",
+          "after_status": "OK"
+        }
+      ],
+      "regressions": [],
+      "regressed": false
+    }
+  ],
+  "regressed": false,
+  "note": "Quality regressions use exact metric decreases; latency deltas are observations, not an undeclared performance gate."
+}

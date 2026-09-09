@@ -1,0 +1,1622 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "summary": {
+    "record_count": 300,
+    "query_count": 188,
+    "family_count": 30,
+    "queries_by_split": {
+      "development": 94,
+      "heldout": 94
+    },
+    "queries_by_category": {
+      "code-references": 7,
+      "deleted-payload": 8,
+      "disagreement": 2,
+      "historical-revisions": 24,
+      "identifiers": 23,
+      "long-tail-evidence": 6,
+      "missing-evidence": 13,
+      "multi-record": 30,
+      "observations": 6,
+      "paraphrases": 27,
+      "preferences": 7,
+      "project-scope": 2,
+      "revoked-history": 2,
+      "same-name-entities": 2,
+      "shared-verified-memory": 4,
+      "status-applicability": 1,
+      "supersession": 4,
+      "task-scope": 10,
+      "unanswerable": 2,
+      "unsupported-hypotheses": 8
+    },
+    "records_by_status": {
+      "current": 253,
+      "deleted": 9,
+      "disputed": 7,
+      "revoked": 2,
+      "superseded": 29
+    },
+    "records_by_epistemic": {
+      "claimed": 41,
+      "supported": 226,
+      "verified": 33
+    },
+    "records_by_level": {
+      "1": 251,
+      "2": 45,
+      "3": 4
+    },
+    "families_by_split": {
+      "development": [
+        "atlas_paths",
+        "beacon_alerts",
+        "canvas_exports",
+        "cedar_archival",
+        "ember_rollbacks",
+        "fern_cache",
+        "harbor_retries",
+        "kiln_batching",
+        "ledger_refunds",
+        "lumen_timezone",
+        "mosaic_accessibility",
+        "quill_preferences",
+        "relay_disagreement",
+        "rivet_migrations",
+        "summit_search"
+      ],
+      "heldout": [
+        "birch_notebooks",
+        "cobalt_inventory",
+        "copper_checkout",
+        "delta_routing",
+        "juniper_audio",
+        "kestrel_ownership",
+        "marina_metrics",
+        "opal_import",
+        "orchard_irrigation",
+        "quartz_signatures",
+        "slate_geo",
+        "spruce_flags",
+        "tide_tickets",
+        "violet_calibration",
+        "willow_scheduler"
+      ]
+    },
+    "unanswerable_count": 30,
+    "multi_record_query_count": 89,
+    "deleted_payload_count": 9,
+    "long_body_count_1000_chars": 6,
+    "label_validation": "internal consistency only; synthetic judgments are not human validated",
+    "eligible_pools": {
+      "min": 1,
+      "median": 36.0,
+      "max": 43,
+      "answerable_at_most_10": 50,
+      "answerable_total": 158,
+      "answerable_at_most_10_by_split": {
+        "development": 25,
+        "heldout": 25
+      },
+      "answerable_at_most_10_by_category": {
+        "disagreement": 2,
+        "historical-revisions": 23,
+        "observations": 6,
+        "project-scope": 2,
+        "revoked-history": 2,
+        "same-name-entities": 1,
+        "shared-verified-memory": 4,
+        "task-scope": 9,
+        "unsupported-hypotheses": 1
+      },
+      "per_query": [
+        {
+          "query_id": "q-canvas_exports-identifier",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-canvas_exports-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-canvas_exports-preference",
+          "split": "development",
+          "category": "preferences",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-canvas_exports-historical",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-canvas_exports-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-canvas_exports-absent",
+          "split": "development",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 36,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-canvas_exports-observed",
+          "split": "development",
+          "category": "observations",
+          "answerable": true,
+          "eligible_count": 6,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-canvas_exports-museum",
+          "split": "development",
+          "category": "project-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-ledger_refunds-code",
+          "split": "development",
+          "category": "code-references",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-ledger_refunds-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-ledger_refunds-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-ledger_refunds-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-ledger_refunds-scope",
+          "split": "development",
+          "category": "same-name-entities",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-ledger_refunds-unapproved",
+          "split": "development",
+          "category": "unsupported-hypotheses",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-harbor_retries-schedule",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-harbor_retries-tail",
+          "split": "development",
+          "category": "long-tail-evidence",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-harbor_retries-code",
+          "split": "development",
+          "category": "code-references",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-harbor_retries-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-harbor_retries-historical",
+          "split": "development",
+          "category": "revoked-history",
+          "answerable": true,
+          "eligible_count": 2,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-harbor_retries-missing",
+          "split": "development",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 35,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-atlas_paths-error",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-atlas_paths-alias",
+          "split": "development",
+          "category": "same-name-entities",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-atlas_paths-scope",
+          "split": "development",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-atlas_paths-history",
+          "split": "development",
+          "category": "supersession",
+          "answerable": true,
+          "eligible_count": 41,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-atlas_paths-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-atlas_paths-deleted",
+          "split": "development",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 36,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-quill_preferences-preference",
+          "split": "development",
+          "category": "preferences",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-quill_preferences-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-quill_preferences-scope",
+          "split": "development",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-quill_preferences-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-quill_preferences-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-quill_preferences-unknown",
+          "split": "development",
+          "category": "unsupported-hypotheses",
+          "answerable": false,
+          "eligible_count": 36,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-beacon_alerts-identifier",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-beacon_alerts-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-beacon_alerts-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-beacon_alerts-revision",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 4,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-beacon_alerts-hypothesis",
+          "split": "development",
+          "category": "unsupported-hypotheses",
+          "answerable": true,
+          "eligible_count": 6,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-beacon_alerts-missing",
+          "split": "development",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 35,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-kiln_batching-constant",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-kiln_batching-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-kiln_batching-history",
+          "split": "development",
+          "category": "supersession",
+          "answerable": true,
+          "eligible_count": 43,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-kiln_batching-scope",
+          "split": "development",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-kiln_batching-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-kiln_batching-absent",
+          "split": "development",
+          "category": "unanswerable",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-mosaic_accessibility-identifier",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-mosaic_accessibility-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-mosaic_accessibility-preference",
+          "split": "development",
+          "category": "preferences",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-mosaic_accessibility-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 41,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-mosaic_accessibility-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-mosaic_accessibility-deleted",
+          "split": "development",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 36,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-cedar_archival-code",
+          "split": "development",
+          "category": "code-references",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-cedar_archival-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-cedar_archival-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-cedar_archival-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-cedar_archival-scope",
+          "split": "development",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-cedar_archival-missing",
+          "split": "development",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-relay_disagreement-identifier",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-relay_disagreement-disagreement",
+          "split": "development",
+          "category": "disagreement",
+          "answerable": true,
+          "eligible_count": 2,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-relay_disagreement-status",
+          "split": "development",
+          "category": "shared-verified-memory",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-relay_disagreement-history",
+          "split": "development",
+          "category": "revoked-history",
+          "answerable": true,
+          "eligible_count": 2,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-relay_disagreement-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-relay_disagreement-unsupported",
+          "split": "development",
+          "category": "unanswerable",
+          "answerable": false,
+          "eligible_count": 35,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-ember_rollbacks-code",
+          "split": "development",
+          "category": "code-references",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-ember_rollbacks-tail",
+          "split": "development",
+          "category": "long-tail-evidence",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-ember_rollbacks-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-ember_rollbacks-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 4,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-ember_rollbacks-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-ember_rollbacks-absent",
+          "split": "development",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 35,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-fern_cache-identifier",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-fern_cache-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-fern_cache-negative",
+          "split": "development",
+          "category": "status-applicability",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-fern_cache-history",
+          "split": "development",
+          "category": "supersession",
+          "answerable": true,
+          "eligible_count": 39,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-fern_cache-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 35,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-fern_cache-unknown",
+          "split": "development",
+          "category": "unsupported-hypotheses",
+          "answerable": false,
+          "eligible_count": 35,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-fern_cache-observed",
+          "split": "development",
+          "category": "observations",
+          "answerable": true,
+          "eligible_count": 6,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-lumen_timezone-code",
+          "split": "development",
+          "category": "code-references",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-lumen_timezone-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-lumen_timezone-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-lumen_timezone-scope",
+          "split": "development",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-lumen_timezone-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-lumen_timezone-unknown",
+          "split": "development",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-rivet_migrations-identifier",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-rivet_migrations-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-rivet_migrations-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-rivet_migrations-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-rivet_migrations-pref",
+          "split": "development",
+          "category": "preferences",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-rivet_migrations-unapproved",
+          "split": "development",
+          "category": "unsupported-hypotheses",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-rivet_migrations-observed",
+          "split": "development",
+          "category": "observations",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-summit_search-identifier",
+          "split": "development",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-summit_search-paraphrase",
+          "split": "development",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-summit_search-revision",
+          "split": "development",
+          "category": "shared-verified-memory",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-summit_search-history",
+          "split": "development",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-summit_search-multi",
+          "split": "development",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 36,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-summit_search-missing",
+          "split": "development",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 36,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-orchard_irrigation-identifier",
+          "split": "heldout",
+          "category": "code-references",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-orchard_irrigation-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-orchard_irrigation-scope",
+          "split": "heldout",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-orchard_irrigation-historical",
+          "split": "heldout",
+          "category": "supersession",
+          "answerable": true,
+          "eligible_count": 43,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-orchard_irrigation-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-orchard_irrigation-unsupported",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 5,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-orchard_irrigation-garden",
+          "split": "heldout",
+          "category": "project-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-tide_tickets-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-tide_tickets-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-tide_tickets-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-tide_tickets-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-tide_tickets-preference",
+          "split": "heldout",
+          "category": "preferences",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-tide_tickets-missing",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-tide_tickets-observed",
+          "split": "heldout",
+          "category": "observations",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-cobalt_inventory-code",
+          "split": "heldout",
+          "category": "code-references",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-cobalt_inventory-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-cobalt_inventory-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-cobalt_inventory-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-cobalt_inventory-scope",
+          "split": "heldout",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-cobalt_inventory-unapproved",
+          "split": "heldout",
+          "category": "unsupported-hypotheses",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-cobalt_inventory-observed",
+          "split": "heldout",
+          "category": "observations",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-juniper_audio-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-juniper_audio-tail",
+          "split": "heldout",
+          "category": "long-tail-evidence",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-juniper_audio-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-juniper_audio-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-juniper_audio-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-juniper_audio-deleted",
+          "split": "heldout",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-slate_geo-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-slate_geo-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-slate_geo-shared",
+          "split": "heldout",
+          "category": "shared-verified-memory",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-slate_geo-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-slate_geo-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-slate_geo-missing",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-willow_scheduler-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-willow_scheduler-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-willow_scheduler-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-willow_scheduler-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-willow_scheduler-scope",
+          "split": "heldout",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-willow_scheduler-unapproved",
+          "split": "heldout",
+          "category": "unsupported-hypotheses",
+          "answerable": false,
+          "eligible_count": 37,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-copper_checkout-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-copper_checkout-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-copper_checkout-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-copper_checkout-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-copper_checkout-scope",
+          "split": "heldout",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-copper_checkout-deleted",
+          "split": "heldout",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-opal_import-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-opal_import-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-opal_import-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-opal_import-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-opal_import-preference",
+          "split": "heldout",
+          "category": "preferences",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-opal_import-missing",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-spruce_flags-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-spruce_flags-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-spruce_flags-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-spruce_flags-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-spruce_flags-scope",
+          "split": "heldout",
+          "category": "task-scope",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-spruce_flags-unsupported",
+          "split": "heldout",
+          "category": "unsupported-hypotheses",
+          "answerable": false,
+          "eligible_count": 37,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-spruce_flags-observed",
+          "split": "heldout",
+          "category": "observations",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-marina_metrics-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-marina_metrics-tail",
+          "split": "heldout",
+          "category": "long-tail-evidence",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-marina_metrics-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-marina_metrics-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-marina_metrics-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-marina_metrics-missing",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 37,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-quartz_signatures-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-quartz_signatures-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-quartz_signatures-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-quartz_signatures-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-quartz_signatures-pref",
+          "split": "heldout",
+          "category": "preferences",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-quartz_signatures-missing",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-birch_notebooks-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-birch_notebooks-tail",
+          "split": "heldout",
+          "category": "long-tail-evidence",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-birch_notebooks-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-birch_notebooks-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-birch_notebooks-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-birch_notebooks-deleted",
+          "split": "heldout",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-kestrel_ownership-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-kestrel_ownership-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-kestrel_ownership-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-kestrel_ownership-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-kestrel_ownership-shared",
+          "split": "heldout",
+          "category": "shared-verified-memory",
+          "answerable": true,
+          "eligible_count": 1,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-kestrel_ownership-missing",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 37,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-violet_calibration-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-violet_calibration-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-violet_calibration-disagreement",
+          "split": "heldout",
+          "category": "disagreement",
+          "answerable": true,
+          "eligible_count": 3,
+          "relevant_count": 2
+        },
+        {
+          "query_id": "q-violet_calibration-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-violet_calibration-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 37,
+          "relevant_count": 4
+        },
+        {
+          "query_id": "q-violet_calibration-missing",
+          "split": "heldout",
+          "category": "missing-evidence",
+          "answerable": false,
+          "eligible_count": 37,
+          "relevant_count": 0
+        },
+        {
+          "query_id": "q-delta_routing-identifier",
+          "split": "heldout",
+          "category": "identifiers",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-delta_routing-tail",
+          "split": "heldout",
+          "category": "long-tail-evidence",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-delta_routing-paraphrase",
+          "split": "heldout",
+          "category": "paraphrases",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 3
+        },
+        {
+          "query_id": "q-delta_routing-history",
+          "split": "heldout",
+          "category": "historical-revisions",
+          "answerable": true,
+          "eligible_count": 5,
+          "relevant_count": 1
+        },
+        {
+          "query_id": "q-delta_routing-multi",
+          "split": "heldout",
+          "category": "multi-record",
+          "answerable": true,
+          "eligible_count": 38,
+          "relevant_count": 5
+        },
+        {
+          "query_id": "q-delta_routing-deleted",
+          "split": "heldout",
+          "category": "deleted-payload",
+          "answerable": false,
+          "eligible_count": 38,
+          "relevant_count": 0
+        }
+      ]
+    }
+  }
+}

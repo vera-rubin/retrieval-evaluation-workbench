@@ -45,4 +45,16 @@ The following inventory describes the pinned Windows CPython 3.13 runtime closur
 
 SQLite itself is [in the public domain](https://sqlite.org/copyright.html). The optional sqlite-vec dependency is retained for acquisition identity and extension experiments; the measured semantic retrieval path uses NumPy cosine scanning.
 
+The optional report-building environment is separate from the inference lock:
+ReportLab 4.4.9 uses its BSD license (Copyright 2000-2025, ReportLab Inc.;
+[publisher metadata](https://pypi.org/pypi/reportlab/4.4.9/json));
+Pillow 12.3.0 declares MIT-CMU
+([metadata](https://pypi.org/pypi/pillow/12.3.0/json)); and
+charset-normalizer 3.5.1 declares MIT
+([metadata](https://pypi.org/pypi/charset-normalizer/3.5.1/json)); and
+pypdf 6.10.0 declares BSD-3-Clause
+([metadata](https://pypi.org/pypi/pypdf/6.10.0/json)). These packages
+are acquired separately. The report uses standard PDF fonts; no external font
+binary is included. Generated figures plot this release's own measurements.
+
 The model licenses do not establish ownership of every upstream training example or guarantee suitability for every later use. This release does not redistribute model training corpora. A distributor who later bundles environments, model files, fonts, or third-party source must inspect and retain the licenses and notices for those exact redistributed files.
