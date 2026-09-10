@@ -56,6 +56,12 @@ Only title and body are searchable. IDs, labels, rationales, family assignments,
 
 Each method builds an index from the same records, searches the eligible set, and fetches the complete original record for every returned hit. Results are deduplicated at record level, with ties resolved by stable record ID. Returned UTF-8 bodies, provenance, fields, and revision/status values are compared with the original record. These checks establish record preservation independently of relevance.
 
+Figure 1 separates the shared inputs and checks from the five ranking configurations.
+
+![Figure 1. One dataset, five retrieval comparisons. This procedure schematic separates index construction from query-specific filtering. Hybrids fuse full available rankings before top-ten selection: lexical contributes eligible term matches, and semantic contributes eligible records with indexed passages. Preservation checks and relevance evaluation are distinct. Per split, four quality means use 79 answerable queries; fifteen empty-relevance queries enter separate diagnostics.](figures/overview.svg)
+
+<!-- pagebreak -->
+
 **Lexical.** APSW 3.53.4.0 links SQLite 3.53.4. FTS5 indexes title and body with unicode61 tokenization. Literal Unicode query terms are joined with OR. BM25 ranks matching records using whole-corpus statistics; eligibility is applied before ordering and limiting. FTS5's BM25 function assigns lower scores to better matches [1]; the adapter reverses that convention to provide descending scores.
 
 **Semantic.** Both models produce 384-dimensional, L2-normalized vectors. BGE-small-en-v1.5 uses CLS pooling and its documented query-only retrieval instruction [2]. MiniLM uses attention-mask mean pooling without a query prefix [3]. Their maximum sequence lengths are 512 and 256 tokens respectively. Local inference uses pinned model files, float32, CPU execution, batches of eight, and at most two compute threads. At model load, torch.manual_seed(17) sets the seed; forward passes use eval mode and torch.inference_mode().
@@ -72,13 +78,13 @@ Recall@10 is the fraction of labeled relevant records retrieved in the first ten
 
 The four quality metrics are macro means: each of the 79 answerable queries contributes equally to its split's mean. The fifteen empty-relevance queries enter separate diagnostics. Errors or unavailable responses within an executed method score as empty retrieval, so failed requests are not silently dropped. Malformed observations invalidate the aggregates; a method that never executed has no score.
 
-<!-- pagebreak -->
-
 ## 4. Fixed-configuration protocol
 
 The earlier experiment selected a 240-token chunk budget, 32-token overlap, equal fusion weights, RRF constant 60, k=10, and seed 17. Selection compared four configurations using mean answerable development nDCG@10 across the two semantic and two hybrid methods; FTS5 was outside the objective. The declared tie-break rule favored fewer chunks, then lower lexical weight, for scores within 0.005 of the best. The [configuration record](../docs/PUBLIC_EVIDENCE.md) gives the selection details.
 
-I report three executions of that fixed setting: development re-evaluation, a primary held-out run, and a held-out repeat. Both splits were already known. The primary pass defines the main result; the repeat measures reproducibility of the recorded quality and timing. Tables and the figure are generated from these raw observations, identified in Appendix A.
+I report three executions of that fixed setting: development re-evaluation, a primary held-out run, and a held-out repeat. Both splits were already known. The primary pass defines the main result; the repeat measures reproducibility of the recorded quality and timing. Tables and Figure 2 are generated from these raw observations, identified in Appendix A.
+
+<!-- pagebreak -->
 
 ## 5. Retrieval quality
 
@@ -178,7 +184,7 @@ The source distribution includes retrieval adapters, dataset generators and JSON
 
 Reproduction has four distinct operations: rescore stored rankings, check their arithmetic with the separate utility, rebuild the report, or execute retrieval again to produce new observations. The [installation guide](../docs/INSTALLATION.md), [verification guide](../docs/VERIFICATION.md), and [report build guide](BUILD.md) give the commands. New retrieval executions use new output directories and retain their own source, dataset, configuration, dependency, interpreter, and model identities.
 
-The raw inputs below provide every numerical table and the figure. Dataset version and authorship metadata form part of the dataset identity even when searchable records and labels match. The [evidence guide](../docs/PUBLIC_EVIDENCE.md) explains the identities used to decide whether two runs can be compared.
+The raw inputs below provide every numerical table and Figure 2. Dataset version and authorship metadata form part of the dataset identity even when searchable records and labels match. The [evidence guide](../docs/PUBLIC_EVIDENCE.md) explains the identities used to decide whether two runs can be compared.
 
 {{MEASUREMENTS_ID}}
 

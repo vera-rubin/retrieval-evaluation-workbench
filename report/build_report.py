@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.summarize_results import summarize
 from hippo_eval.contracts import digest
+from report import overview
 
 TITLE = "Reproducible Retrieval Evaluation: A Workbench for Lexical, Semantic, and Hybrid Search"
 SHORT_TITLE = "Reproducible Retrieval Evaluation"
@@ -124,7 +125,7 @@ def substitutions(runs):
         "SETUP_TABLE": markdown_table(["Method", "Load seconds", "Index seconds"], setup_rows),
         "RESOURCE_TABLE": markdown_table(["Run", "Peak RSS MiB", "RSS samples", "Elapsed seconds"], resource_rows),
         "POOL_TABLE": markdown_table(["Method", "Queries", "Recall@10", "nDCG@10"], pool_rows),
-        "QUALITY_FIGURE": "![Figure 1. Recall and nDCG on the 79 answerable held-out queries in the primary pass.](figures/quality.svg)",
+        "QUALITY_FIGURE": "![Figure 2. Recall and nDCG on the 79 answerable held-out queries in the primary pass.](figures/quality.svg)",
         "MEASUREMENTS_ID": markdown_table(["Raw bundle directory", "SHA-256 of run.json.gz"], identity_rows),
     }
 
@@ -306,8 +307,8 @@ def html_document(markdown):
             output.append(table + '</tbody></table></div>')
         elif kind == "figure":
             caption, path = value
-            if path != "figures/quality.svg":
-                raise ValueError("The report builder supports only its verified quality figure")
+            if path not in ("figures/quality.svg", "figures/overview.svg"):
+                raise ValueError("The report builder supports only its two verified figures")
             output.append(f'<figure><img src="{path}" alt="{html.escape(caption, quote=True)}"><figcaption>{inline(caption)}</figcaption></figure>')
         else:
             output.append('<hr class="pagebreak">')
@@ -317,13 +318,13 @@ def html_document(markdown):
             '\n'.join(output) + '</main></body></html>\n')
 
 
-def build_pdf(markdown, path, heldout):
+def build_pdf(markdown, path, heldout, overview_stats):
     from reportlab.lib import colors
     from reportlab.lib.enums import TA_LEFT
     from reportlab.lib.pagesizes import A4
     from reportlab.lib.styles import ParagraphStyle
     from reportlab.pdfgen import canvas
-    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle, KeepTogether
     from reportlab.lib.colors import HexColor
     width = A4[0] - 80
     styles = {
@@ -352,9 +353,13 @@ def build_pdf(markdown, path, heldout):
             story.append(PageBreak())
         elif kind == 'figure':
             caption, figure = value
-            if figure != 'figures/quality.svg':
+            if figure == 'figures/quality.svg':
+                graphic = pdf_chart(heldout, width)
+            elif figure == 'figures/overview.svg':
+                graphic = overview.drawing(overview_stats, width)
+            else:
                 raise ValueError('Unverified report figure')
-            story.extend([pdf_chart(heldout, width), Paragraph(inline(caption, True), styles['caption'])])
+            story.append(KeepTogether([graphic, Paragraph(inline(caption, True), styles['caption'])]))
         else:
             rows = [[Paragraph(inline(cell, True), styles['tablehead'] if index == 0 else styles['cell']) for cell in row]
                     for index, row in enumerate(value)]
@@ -407,6 +412,7 @@ def main():
     verify_input_bindings(args.runs, inputs_manifest)
     runs = [summarize(p.resolve()) for p in args.runs]
     values = substitutions(runs)
+    overview_stats = overview.dataset_statistics(ROOT)
     source = args.manuscript.read_text(encoding='utf-8')
     requested = re.findall(r'\{\{([A-Z_]+)\}\}', source)
     if set(requested) - set(values):
@@ -424,14 +430,19 @@ def main():
     args.out.mkdir(parents=True,exist_ok=True)
     (args.out/'figures').mkdir(exist_ok=True)
     (args.out/'figures/quality.svg').write_text(svg_chart(runs[1]),encoding='utf-8',newline='\n')
+    (args.out/'figures/overview.svg').write_text(overview.svg(overview_stats),encoding='utf-8',newline='\n')
     (args.out/'report.md').write_text(source,encoding='utf-8',newline='\n')
     (args.out/'report.html').write_text(rendered_html,encoding='utf-8',newline='\n')
-    build_pdf(source,args.out/'report.pdf',runs[1])
-    outputs = ('report.md','report.html','report.pdf','figures/quality.svg')
+    build_pdf(source,args.out/'report.pdf',runs[1],overview_stats)
+    outputs = ('report.md','report.html','report.pdf','figures/quality.svg','figures/overview.svg')
     receipt={'schema':'retrieval-evaluation-report-build/v1','raw_inputs':[{key:run[key] for key in ('raw_file','raw_sha256')} for run in runs],
              'manuscript_sha256':sha256(args.manuscript.read_bytes()).hexdigest(),
              'builder_sha256':sha256(Path(__file__).read_bytes()).hexdigest(),
              'inputs_manifest_sha256':sha256(manifest_path.read_bytes()).hexdigest(),
+             'overview':{'source_sha256':sha256(Path(overview.__file__).read_bytes()).hexdigest(),
+                         'dataset_inputs':{name:sha256((ROOT/name).read_bytes()).hexdigest()
+                                           for name in ('fixtures/corpus.json','fixtures/queries.json')},
+                         'statistics':overview_stats,'kind':'logical_procedure_schematic'},
              'dependencies':{name:importlib.metadata.version(name) for name in ('reportlab','Pillow','charset-normalizer','pypdf')},
              'outputs':{name:sha256((args.out/name).read_bytes()).hexdigest() for name in outputs},
              'scope':'Observed synthetic retrieval results; known query splits; no retuning or inferential significance claims'}

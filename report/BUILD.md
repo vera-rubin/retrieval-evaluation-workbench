@@ -1,7 +1,7 @@
 # Build the technical report
 
 The editable source is [manuscript.md](manuscript.md). Numerical tables and the
-vector chart are generated directly from the three retained raw result bundles.
+quality chart are generated directly from the three retained raw result bundles.
 The builder recomputes their analyses and requires all five methods, complete
 query counts, successful execution, compatible identities and recorded resource
 measurements.
@@ -34,14 +34,37 @@ the established 94-query splits, including the descriptive subset of 54 answerab
 held-out queries with more than ten eligible candidates. Changed counts are rejected.
 
 Outputs are `report.md`, responsive static `report.html`, `report.pdf`,
-`figures/quality.svg` and `build-receipt.json`. The build record binds raw inputs,
+`figures/quality.svg`, `figures/overview.svg` and `build-receipt.json`. The build record binds raw inputs,
 manuscript, input manifest, builder, rendering versions and generated output
 hashes. The PDF uses deterministic rendering, removes CreationDate and ModDate
 fields, and retains the author metadata. Relative artifact links work in the
 HTML; the PDF maps them to the repository's corresponding file paths.
 
 The Markdown parser supports headings, paragraphs, simple bullets, tables,
-fenced code, links and explicit `<!-- pagebreak -->` markers. Only the measured
-quality chart is embedded. Review every rendered PDF page after manuscript or
+fenced code, links and explicit `<!-- pagebreak -->` markers. The two supported
+figures are the procedure schematic and measured quality chart. Review every rendered PDF page after manuscript or
 layout changes: automated text extraction alone cannot establish visual quality.
 Building the report uses the retained observations and local rendering packages.
+
+## Procedure schematic
+
+[overview.py](overview.py) is the editable vector source for Figure 1. It uses
+one point-based layout for the SVG and the embedded PDF, with labels of at least
+9.3 pt at the report's full text width. Dataset counts come from the committed
+corpus and queries using the evaluator's filtering function. The builder rejects
+counts that differ from the reported dataset and records the two input hashes,
+schematic-source hash and derived counts in `build-receipt.json`. Figure 2 retains
+the measured quality chart. Neither figure requires model inference.
+
+Run the additional rendering checks in the report environment:
+
+```powershell
+.\.report-venv\Scripts\python.exe -B -I report\test_overview.py
+```
+
+For a phone preview of the same figure, `overview.preview_pdf` exports its vector
+drawing to a separate PDF. Render that file with an available Poppler installation,
+for example `pdftoppm -r 300 -singlefile -png overview.pdf overview`.
+Poppler is optional preview tooling; the report build needs only the four pinned
+Python packages. Record the preview renderer version and resulting PNG hash with
+the review assets. Keep temporary renders outside the source distribution.

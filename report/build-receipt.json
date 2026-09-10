@@ -14,9 +14,37 @@
       "raw_sha256": "7d58cd828a9d9a763b107b8b1bc72586994a8175c38b2b9d7bc5c7277456bf8b"
     }
   ],
-  "manuscript_sha256": "545479a9201bf8d92156b0556b017cd699f5c9ba788a3b6dd6fa02edfc01b653",
-  "builder_sha256": "019da6c742f61c791b63c46d26a66bba8709d8c9c6ed1d8914a34024eb333615",
+  "manuscript_sha256": "ecc68eba1e80a5522b62db8aa6b4a092ccf6b716b33241e1db0464fa3d5a2b22",
+  "builder_sha256": "60a64a708abc2aa3847bfb212c7ca876b5b90d7dcdd55957297fcf1c9a166080",
   "inputs_manifest_sha256": "4ed12495ca4f30b5ec523fc832ca726753f00ff7b8c46c76a2492ce1c1a8746f",
+  "overview": {
+    "source_sha256": "df678cfcf0363e1a0bdc7f8bd1c51b8c898b164f7758c07eb7d5270eae6edd66",
+    "dataset_inputs": {
+      "fixtures/corpus.json": "387b832dccdf3ca6cde85c4e6fc0553c4dad700b04f4d359232e87ad59e78aed",
+      "fixtures/queries.json": "5aa1d48589086bbe29984a64265423878987620bd14ff058cb0977897a6c10bd"
+    },
+    "statistics": {
+      "corpus_records": 300,
+      "indexed_records": 291,
+      "query_count": 188,
+      "eligible_min": 1,
+      "eligible_median": 36.0,
+      "eligible_max": 43,
+      "splits": {
+        "development": {
+          "queries": 94,
+          "answerable": 79,
+          "empty_relevance": 15
+        },
+        "heldout": {
+          "queries": 94,
+          "answerable": 79,
+          "empty_relevance": 15
+        }
+      }
+    },
+    "kind": "logical_procedure_schematic"
+  },
   "dependencies": {
     "reportlab": "4.4.9",
     "Pillow": "12.3.0",
@@ -24,10 +52,11 @@
     "pypdf": "6.10.0"
   },
   "outputs": {
-    "report.md": "cdf1d55c2219a8064108b02cbe08ba500ac2d3b25fa828f6a1760cf53e12af71",
-    "report.html": "6af6c2b40b367f01219a001433c5b31b664bfe67f77fc0a0827d6dc0045a867f",
-    "report.pdf": "3f2045445d241f4b8131c3790468b2803f2c2b121bc8bd468767295dc04e394d",
-    "figures/quality.svg": "9ef55c1ca57f69386ddd17c9a4c5e1d120e07579d89a75e37da8260c017b2bb3"
+    "report.md": "8ee4fb7b61078a347ade59846c16588c779da814fe7f41b067608d3c731e4210",
+    "report.html": "8ff52efc422dc6d29dd6098674175982a043c185423e7548f278fc9cf244fe2f",
+    "report.pdf": "afaf20364a9be3e1145a1c0d7b9d3ebeabec6ed2e9fd8ebc3caea57bc14e0048",
+    "figures/quality.svg": "9ef55c1ca57f69386ddd17c9a4c5e1d120e07579d89a75e37da8260c017b2bb3",
+    "figures/overview.svg": "56c186efdb191a0ff5eb3f41933b5c6cd1f57829853752400b78e0e686f3db02"
   },
   "scope": "Observed synthetic retrieval results; known query splits; no retuning or inferential significance claims"
 }
