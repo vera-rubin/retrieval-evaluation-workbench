@@ -45,6 +45,32 @@ behavior from these synthetic fixtures. The current semantic implementation
 uses CPU PyTorch embeddings with NumPy cosine scanning; it is not a production
 vector-database service.
 
+### Bounds of the bundled implementations
+
+The bundled lexical search rejects more than 10,000 retained-body eligible
+rowids when constructing its parameterized SQL query. This is a bound on that
+SQL search path, not on corpus storage, the semantic scan, or all possible
+adapters. Its query expression accepts at most 256 distinct terms after literal
+Unicode extraction and deduplication; a larger set raises `RetrievalInputError`
+instead of silently truncating it. A query with no extracted terms returns no
+lexical matches. Both restrictions also affect a hybrid's lexical component.
+
+The semantic path instead checks model token limits (512 for BGE, 256 for
+MiniLM), including query prefixes and special tokens, and explicitly rejects
+overlong inputs. Null bodies exclude the entire record at build time. A
+non-null field consisting only of whitespace produces no chunk. A successful
+semantic search with positive k returns a candidate if an eligible indexed
+passage exists; unsuccessful loading/encoding and empty indexed pools do not
+meet that condition.
+
+The hybrids request `len(eligible_ids)` results from each component before
+fusion, then choose the final top-k records. Semantic search supplies all
+eligible records with indexed passages; lexical search supplies only matches
+to the extracted query terms. A lexical nonmatch receives no lexical RRF
+contribution. Lexical ties use rowids assigned in sorted record-ID order;
+semantic and hybrid ties also use record ID. These are properties of the
+bundled implementations, not universal requirements on every future adapter.
+
 ## Fixture, run and identity records
 
 The corpus and query schemas are defined in `hippo_eval/contracts.py` and

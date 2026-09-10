@@ -1,0 +1,253 @@
+{
+  "schema": "source-archive-validation-sanitized-summary/v1",
+  "status": "PASSED",
+  "created_at": "2026-09-10T01:05:58.300431+00:00",
+  "event": "Retained validation of the exact 93-file source archive at commit 5e71d766b2d24908e75e79ccdf8741f299d1edbb.",
+  "scope": "Archive byte verification, evaluator tests, fixture/supplied-trace checks, and report rebuilding using existing local dependencies. This is not a new clean acquisition or five-method retrieval measurement.",
+  "historical_binding": "This derivative reports the stated archived commit only. It does not claim that later changed release contents were tested by this event.",
+  "derivative": {
+    "original_receipt_sha256": "df79439cfd4a913f5099cfec3aa4ec6bcafafa2bc5fc53d085e9ed911e5a9419",
+    "transformation": "Selected original observations and identities; omitted personal runtime paths, full dependency-file inventory and raw logs; renamed the internal reliability check label. Original evidence remains unchanged. No execution result, count, digest or timing was recomputed as a new experiment."
+  },
+  "archive": {
+    "commit": "5e71d766b2d24908e75e79ccdf8741f299d1edbb",
+    "tree": "0816cd28ce9ccb2bdcfb83705e6580572d3d0aef",
+    "sha256": "5b9c8302a5bb3bb666e3651f81e27d8e3043a6ae0650788d8acc3584364e5f29",
+    "files_verified": 93,
+    "all_files_unchanged_after_checks": true
+  },
+  "tests": {
+    "tests_discovered": 171,
+    "tests_run": 171,
+    "tests_executed": 171,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "focused_reliability_tests_executed": 34,
+    "focused_count_note": "The separately executed 34-test group is a subset of the 171-test suite, not 34 additional distinct tests.",
+    "source_files_sha256": {
+      "test_cli.py": "8988c7a5f3e4e0ee754487764b2da1be99c4d3112bc2c7e2b907046d1a0e828e",
+      "test_evaluator.py": "76a5d0936b2f028ffdbf04bf1b66e8561a0be99b429d6b35848a1dcad18ef797",
+      "test_fixtures.py": "fe6f6385054477df5d34a12b54b55cd19d1c7800f71f22ce9497e5835455c2d3",
+      "test_metadata.py": "e9ea694bb75595b3932003941e98ec8f9ec499961fcfe5f29025499b8cefed04",
+      "test_publication.py": "c3a0669831234cd32ab32998ef2e602187af7ec418ca22c82f5b92a80290c766",
+      "test_retrieval.py": "6b3825073daf2c21eae2e41281b32c4cf3bda2bd4c8da92941e5ea8e5fd58551",
+      "test_review_fixes.py": "dfc35f684182428a57ab733174ea1c32b42fe326677a23013c9a76f52b358d5e"
+    }
+  },
+  "test_identity": {
+    "source_digest": "467ed8078f588aca1104e2440b6aa05bb52c51189ad08350d106bb4d9629ab13",
+    "source_files": {
+      "hippo_eval/__init__.py": "fa6cb01413a1449fe060b519a99479eabb699333a362798c2c5822c3c26c118e",
+      "hippo_eval/bootstrap.py": "6d947d782e304d32335f44d112bcb39f1fb23f1e70a3983753dbe8f7b60f9bb8",
+      "hippo_eval/cli.py": "78b2dbd83fcea8b65b9cf998d818604299cb162f5de0ed77c77aa2e3d5482535",
+      "hippo_eval/contracts.py": "9eba34f328738af2b06376fe8fc054191b08d23b15bd2e17ba1f5febd112c91e",
+      "hippo_eval/fixtures.py": "1b3784748cbc8fd6b2020ee60feeab779fc0a32dfe737108560ad4123a818700",
+      "hippo_eval/metrics.py": "a71f957d4afb3f6fa8867f5baec0ebf06bfe310277490892264ee2b4db9b0957",
+      "hippo_eval/reporting.py": "c7594bd65b0b804fbfd9479ee2e797f6fb8fa81196aa2c2e30cd289bce6a5a31",
+      "hippo_eval/retrieval.py": "91502db1083576d6b1de203b287c9c2dc7a1a8343a360f966ee7002096216387",
+      "hippo_eval/scenarios.py": "fb9df058f9c1d322b84530c43f65aa8266c30eb4bc4a0a9ae66fa159249b6d16",
+      "workbench.py": "4be63e41490914b459740a5c884120e4c9a4ad36eae137c3cde169db71d51bd8"
+    },
+    "git_head": null,
+    "source_origin": "source_archive",
+    "dependencies": {
+      "apsw": "3.53.4.0",
+      "sqlite-vec": null,
+      "torch": null,
+      "transformers": null,
+      "tokenizers": null,
+      "numpy": null,
+      "safetensors": null,
+      "huggingface-hub": null,
+      "sentence-transformers": null,
+      "psutil": "7.1.0",
+      "pyyaml": "6.0.3",
+      "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+      "python_executable_sha256": "85b71d8c6ec1905935f74be0c9869aae198d00e98f39df699ec66f9c5a84cecd"
+    },
+    "dependency_digest": "fbeaf53455f881a714313eadbdf9db7e80d1ed423ed3d669058bd9dadd9f3f83",
+    "metric_version": "hippo-metrics/v1"
+  },
+  "fixture_counts": {
+    "records": 300,
+    "queries": 188
+  },
+  "fixture_files_sha256": {
+    "fixtures/corpus.json": "387b832dccdf3ca6cde85c4e6fc0553c4dad700b04f4d359232e87ad59e78aed",
+    "fixtures/queries.json": "5aa1d48589086bbe29984a64265423878987620bd14ff058cb0977897a6c10bd",
+    "scenarios/cases.json": "77eeb06aa36337a79e808b76eda9dcc4440826e0e8a04b1ee6b9a85c0ade2fc1",
+    "scenarios/correct.json": "49d317fa56865245f42b21c2309d3446d787794eec6a0f55fd12ffdf396f2226",
+    "scenarios/incorrect.json": "7de7e744a43ce37bc8a0a74eacbd7a9df48f3da7075992d6546815825e6c1a9b"
+  },
+  "supplied_trace_checks": {
+    "correct_accepted": 12,
+    "incorrect_rejected": 12
+  },
+  "report_output_comparison": {
+    "report.md": {
+      "candidate_sha256": "26406373dd029897dc775be0cb3b119b1f1cf3c7a5ed41ffc97f33507011e40b",
+      "rebuilt_sha256": "26406373dd029897dc775be0cb3b119b1f1cf3c7a5ed41ffc97f33507011e40b",
+      "identical": true
+    },
+    "report.html": {
+      "candidate_sha256": "0fee50eec73e08ba81182c6c55a516e2945ff1f9cca59c30ebd020437b0f5463",
+      "rebuilt_sha256": "0fee50eec73e08ba81182c6c55a516e2945ff1f9cca59c30ebd020437b0f5463",
+      "identical": true
+    },
+    "report.pdf": {
+      "candidate_sha256": "4aa136d98cc3530aa8cff0ddb238b68f1507d0a2cfdd2cfab36c691ee7a069d1",
+      "rebuilt_sha256": "4aa136d98cc3530aa8cff0ddb238b68f1507d0a2cfdd2cfab36c691ee7a069d1",
+      "identical": true
+    },
+    "figures/quality.svg": {
+      "candidate_sha256": "9ef55c1ca57f69386ddd17c9a4c5e1d120e07579d89a75e37da8260c017b2bb3",
+      "rebuilt_sha256": "9ef55c1ca57f69386ddd17c9a4c5e1d120e07579d89a75e37da8260c017b2bb3",
+      "identical": true
+    },
+    "build-receipt.json": {
+      "candidate_sha256": "2306536dc3a4c87930ca0c15efd8810b8039830f76673f5dd5f03e4899e66bfc",
+      "rebuilt_sha256": "2306536dc3a4c87930ca0c15efd8810b8039830f76673f5dd5f03e4899e66bfc",
+      "identical": true
+    }
+  },
+  "commands": [
+    {
+      "check": "full-suite",
+      "arguments": [
+        "workbench.py",
+        "smoke",
+        "--out",
+        ".scratch/tests.json"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "passed": true,
+      "elapsed_seconds": 7.209024800045881,
+      "log_sha256": "3ddefbe3df4f2ccc9a38d4e6c2cfd59aa85632688bcd8052306c9579644df2b1"
+    },
+    {
+      "check": "reliability-regressions",
+      "arguments": [
+        "workbench.py",
+        "smoke",
+        "--pattern",
+        "test_review_fixes.py",
+        "--out",
+        ".scratch/reliability.json"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "passed": true,
+      "elapsed_seconds": 3.40921619994333,
+      "log_sha256": "59fab89b87f1925a2532df997019f4da5d553b3a112da5a18f84cdec9837b7f8"
+    },
+    {
+      "check": "fixtures",
+      "arguments": [
+        "workbench.py",
+        "validate",
+        "--out",
+        ".scratch/fixtures.json"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "passed": true,
+      "elapsed_seconds": 0.23774100001901388,
+      "log_sha256": "622081c14a02ffc652d2f1f49a41eeadc2ce572c1575788bdb696ee32809fbee"
+    },
+    {
+      "check": "correct-scenarios",
+      "arguments": [
+        "workbench.py",
+        "check-traces",
+        "scenarios/cases.json",
+        "scenarios/correct.json",
+        "--out",
+        ".scratch/correct.json"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "passed": true,
+      "elapsed_seconds": 0.2588258000323549,
+      "log_sha256": "88bb0b04377385c2adbd3e796aa861873bbe546503f44fc5ca0ab03e4cb65553"
+    },
+    {
+      "check": "incorrect-scenarios",
+      "arguments": [
+        "workbench.py",
+        "check-traces",
+        "scenarios/cases.json",
+        "scenarios/incorrect.json",
+        "--out",
+        ".scratch/incorrect.json"
+      ],
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "passed": true,
+      "elapsed_seconds": 0.2983985000173561,
+      "log_sha256": "9a03016b41d474e4c814e20d4cef5fea39ee661b4f5d7bf23de69890a7566ad7"
+    },
+    {
+      "check": "report-check-only",
+      "arguments": [
+        "report/build_report.py",
+        "--check-only"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "passed": true,
+      "elapsed_seconds": 0.7470113000017591,
+      "log_sha256": "a6318e7630de0f0bf71a7585b6d36e87309c05589fcff356e42071f8050dbe2d"
+    },
+    {
+      "check": "report-rebuild",
+      "arguments": [
+        "report/build_report.py",
+        "--out",
+        ".scratch/rebuilt-report"
+      ],
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "passed": true,
+      "elapsed_seconds": 1.133830400009174,
+      "log_sha256": "24f6ca80695746b9dd1801e93cb64c4644854a533c60d8f84d2cae015bea621c"
+    }
+  ],
+  "environment": {
+    "platform": "Windows CPython 3.13 x64",
+    "dependency_setup": "copied only APSW, psutil, PyYAML and their distribution metadata into new isolated archive test site; existing publication Python/report environments reused with bytecode generation disabled",
+    "copied_dependency_bytes": 8887300,
+    "bytecode_behavior": "Main test/report interpreters used -B -I; isolation workers imported from the copied new test site",
+    "new_installations": false,
+    "new_downloads": false,
+    "new_model_execution": false,
+    "full_semantic_dependency_closure_in_test_site": false
+  },
+  "not_run": [
+    "Fresh dependency acquisition or installation for this archive event",
+    "Fresh model-asset acquisition for this archive event",
+    "Lexical corpus scoring as a separate retrieval run in this event",
+    "Semantic or hybrid model benchmark in this event",
+    "New retrieval-quality or timing measurements"
+  ],
+  "elapsed_seconds": 14.44528139999602,
+  "elapsed_scope": "Wall time of this seven-command validation sequence with existing local dependencies; not a retrieval latency benchmark.",
+  "related_historical_receipts": [
+    {
+      "file": "results/validation/clean-archive.json",
+      "sha256": "361bb930e21e771c1d874ba500f457ca6134ca037dccf541e1b790ab443c4d71",
+      "scope": "Earlier 164-test clean acquisition/archive check; includes a 94-query lexical development execution. Semantic execution from that clean archive was NOT RUN."
+    },
+    {
+      "file": "results/validation/evaluator-171-candidate.json",
+      "sha256": "7366556741b955271dac92fa08a3a0dbc90f30dc9e5bf85bcf86ae8cce8d9138",
+      "scope": "Earlier 171-test checkout receipt; observed HEAD and evaluator source bindings are historical and do not identify the later complete archive."
+    },
+    {
+      "file": "results/validation/editorial-171.json",
+      "sha256": "8996a0231b23ff5b4c830b391710479f87e368065caeb9d3a2cb6b9749a60852",
+      "scope": "171-test editorial checkout summary recorded before commit 5e71d766; exact final archive verification is a separate event."
+    }
+  ]
+}

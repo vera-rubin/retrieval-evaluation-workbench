@@ -10,7 +10,7 @@ Technical report accompanying proposed software version 1.0.0. Release candidate
 
 ### Abstract
 
-I compare lexical, semantic, and hybrid retrieval over synthetic project records: how do ranking quality, recall, and query latency differ when methods share the same corpus and eligibility rules? I built a standalone workbench that makes the comparison reproducible and its observations inspectable. It evaluates SQLite FTS5 BM25, BGE-small-en-v1.5, all-MiniLM-L6-v2, and two equal-weight reciprocal-rank-fusion hybrids using 300 records and 188 labeled queries. Each query ranks eligible records drawn from the 291 records with retained bodies. The report uses an established configuration on both known query splits, without retuning or changing labels. On the 79 answerable held-out queries, BGE obtains nDCG@10 of 0.9588 and recall@10 of 0.9831; MiniLM obtains 0.9379 and 0.9863; lexical recall is 0.9363. The hybrids do not consistently improve over their semantic components. A repeat preserves every quality aggregate while query timings change materially. All five methods returned nonempty candidate lists for the fifteen empty-relevance queries. No answerability decision rule was evaluated.
+I compare lexical, semantic, and hybrid retrieval over synthetic project records: how do ranking quality, recall, and query latency differ under shared eligibility rules? I built a standalone workbench that makes the comparison reproducible and its observations inspectable. It evaluates SQLite FTS5 BM25, BGE-small-en-v1.5, all-MiniLM-L6-v2, and two equal-weight reciprocal-rank-fusion hybrids using 300 records and 188 labeled queries. Of 291 indexed records, each query ranks an eligible pool of 1-43 records (median 36), excluding null bodies and applying its scope/status rules. The report uses an established configuration on both known query splits, without retuning or changing labels. On the 79 answerable held-out queries, BGE obtains nDCG@10 of 0.9588 and recall@10 of 0.9831; MiniLM obtains 0.9379 and 0.9863; lexical recall is 0.9363. The hybrids do not consistently improve over their semantic components. A repeat preserves every quality aggregate while query timings change materially. All five methods returned candidates for the fifteen empty-relevance queries; successful semantic/fusion searches return candidates when eligible indexed passages exist. No answerability decision rule was evaluated.
 
 ## 1. Contribution and retrieval task
 
@@ -30,7 +30,7 @@ The 188 queries form development and original held-out splits of 94 queries from
 
 ### Construction and bounded review
 
-OpenAI Codex generated the stories, identifiers, code references, records, queries, and labels; they do not represent a real project corpus. Before the original full comparison, a second model-assisted reviewer inspected twenty queries, ten per split, against their records and rules without retrieval scores. That bounded review found two missing grade-1 illustrations: an Orchard rain-rule trial and a Tide boarding-deadline observation. The labels and rationales were corrected from the text before scoring. There was no human annotation study or exhaustive independent relevance assessment.
+OpenAI Codex generated the stories, identifiers, code references, records, queries, and labels; they do not represent a real project corpus. Before the original full comparison, a second model-assisted reviewer inspected 20 of 188 queries, ten per split, against their records and rules without retrieval scores. That bounded review found two missing grade-1 illustrations: an Orchard rain-rule trial and a Tide boarding-deadline observation. The labels and rationales were corrected from the text before scoring. This review supplies neither an overall label-error rate nor a direction of metric bias. It was not a human annotation study or exhaustive relevance assessment.
 
 ### Relevance and eligibility
 
@@ -42,9 +42,9 @@ Ordinary queries select one of six synthetic workspaces, each containing five re
 
 Thirty questions request multiple records; six target trial observations; six target evidence in the final paragraph of bodies longer than 1,000 characters. Coverage also includes unsupported hypotheses, supersession, disagreement, preferences, and missing or deleted evidence.
 
-Eligible pools have minimum, median, and maximum sizes of 1, 36, and 43. Fifty of 158 answerable queries have at most ten eligible records, 25 per split. I retain all queries in the primary analysis and describe the larger-pool subset alongside the results. Repeated story structure and a shared authoring process limit the independence of the query families.
+Eligible pools, computed after rejecting null bodies and applying each query's rules, have minimum, median, and maximum sizes of 1, 36, and 43 across all 188 queries. Fifty of 158 answerable queries have at most ten eligible records, 25 per split. I retain all queries in the primary analysis and describe the larger-pool subset alongside the results. Repeated story structure and a shared authoring process limit the independence of the query families.
 
-Only title and body are searchable. IDs, labels, rationales, family assignments, and rules remain evaluator metadata. Fixture audits check references, body hashes, duplicate cases, eligibility contradictions, supersession cycles, and declared split leakage. These checks do not establish semantic independence or factual truth.
+Only title and body are searchable. IDs, labels, rationales, family assignments, and rules remain evaluator metadata. Mechanical audits cover all fixtures for references, body hashes, duplicate cases, eligibility contradictions, supersession cycles, and declared split leakage. They are distinct from the 20-query relevance review and do not establish semantic independence or factual truth.
 
 <!-- pagebreak -->
 
@@ -56,11 +56,11 @@ Each method builds an experimental index from the same records, searches a suppl
 
 **Lexical.** APSW 3.53.4.0 links SQLite 3.53.4. FTS5 indexes title and body using unicode61 tokenization. Literal Unicode query terms are joined with OR; user text is not executed as FTS syntax. BM25 ranks matching records with whole-corpus statistics, with eligibility restricted before ordering and limiting. FTS5's documented BM25 score uses lower values for better matches [1]. The adapter exposes the corresponding descending score convention.
 
-**Semantic.** Both models produce 384-dimensional, L2-normalized vectors. BGE-small-en-v1.5 uses CLS pooling and its documented query-only retrieval instruction [2]. MiniLM uses attention-mask mean pooling and no query prefix [3]. Their maximum sequence lengths are 512 and 256 tokens respectively. Inference uses local immutable artifacts, float32, CPU execution, batches of eight, and at most two compute threads. It does not load remote custom model code.
+**Semantic.** Both models produce 384-dimensional, L2-normalized vectors. BGE-small-en-v1.5 uses CLS pooling and its documented query-only retrieval instruction [2]. MiniLM uses attention-mask mean pooling and no query prefix [3]. Their maximum sequence lengths are 512 and 256 tokens respectively. Inference uses local immutable artifacts, float32, CPU execution, batches of eight, and at most two compute threads. The loader calls torch.manual_seed(17); forward passes use eval mode and torch.inference_mode(). This does not establish cross-host determinism or seed irrelevance. It does not load remote custom model code.
 
-Title and body are chunked separately with each model's fast tokenizer, a 240-token budget including special tokens, and 32-token overlap. Every substring is retokenized to verify the limit. Character and UTF-8 byte offsets bind passages to retained text; no full record is silently truncated. Each semantic index contains 588 chunks. Query limits include the instruction prefix and special tokens; overlong queries fail explicitly. Search scans normalized vectors with NumPy dot products after eligibility filtering, then takes the best passage score per record. This is exact cosine scanning, not a production sqlite-vec service.
+Title and body are chunked separately with each model's fast tokenizer, a 240-token budget including special tokens, and 32-token overlap. Every substring is retokenized to verify the limit. Character and UTF-8 byte offsets bind passages to retained text; no full record is silently truncated. A separate pinned-tokenizer inspection confirms each model's 588 chunks: 576 one-chunk fields and six two-chunk bodies, with no split titles. This corpus exercises only two chunks per field at most; focused chunking tests use a tokenizer double and do not demonstrate model inference. Query limits include the instruction prefix and special tokens; overlong queries fail explicitly. Search scans normalized vectors with NumPy dot products after eligibility filtering, then takes the best passage score per record. This is exact cosine scanning, not a production sqlite-vec service.
 
-**Hybrid.** Each hybrid sums weighted reciprocal ranks from lexical and semantic record lists: weight / (60 + rank), with one-based ranks. Both weights equal one. Fusion uses each component's eligible result list before taking the final top ten. This applies reciprocal-rank fusion [4].
+**Hybrid.** Each hybrid sums reciprocal ranks, 1 / (60 + rank), with one-based ranks and equal component weights [4]. It requests len(eligible_ids) results from each component before taking the final top ten. Semantic search contributes every eligible record with indexed passages; lexical search contributes only term matches. A lexical nonmatch receives no lexical RRF term. Input bounds for these paths are in the [interface guide](../docs/INTERFACES.md#bounds-of-the-bundled-implementations).
 
 ### Metric definitions
 
@@ -72,7 +72,7 @@ The four quality metrics are macro means over 79 answerable queries per split. T
 
 ## 4. Fixed-configuration protocol
 
-The retained standalone executions use the previously selected 240-token chunk budget, 32-token overlap, equal lexical/semantic fusion weights, RRF constant 60, k=10, and seed 17. The earlier bounded selection compared four declared development configurations; its procedure is documented in the [evidence lineage](../docs/PUBLIC_EVIDENCE.md). It did not establish an optimal configuration.
+The retained executions use a 240-token chunk budget, 32-token overlap, equal fusion weights, RRF constant 60, k=10, and seed 17. The earlier four-configuration selection used mean answerable development nDCG@10 across the two semantic and two hybrid methods; FTS5 was outside the objective. Its declared tie-break procedure is in the [evidence lineage](../docs/PUBLIC_EVIDENCE.md). It did not establish an optimal configuration.
 
 I report the existing development re-evaluation, primary held-out re-evaluation, and held-out repeat. The original held-out queries were already known. No configuration or label was changed for this editorial revision, and no model benchmark was rerun. The primary pass remains primary even though the repeat was faster. Tables and the figure are regenerated from the same raw observations; Appendix A records their identities.
 
@@ -92,15 +92,15 @@ The primary held-out pass executed 470 method/query searches. Table 1 averages t
 
 ![Figure 1. Recall and nDCG on the 79 answerable held-out queries in the primary pass.](figures/quality.svg)
 
-On this split, the attainable mean precision@10 is 158 / (79 x 10) = 0.2000: there are 158 relevant record assignments across the answerable queries, with no gold set larger than ten. Precision divides by ten slots even when fewer records return. This ceiling is specific to the held-out labels.
+Held-out mean precision@10 can reach 158 / (79 x 10) = 0.2000: there are 158 relevant record-query assignments and at most five gold records per query. Precision divides by ten even for shorter lists; the ceiling assumes all labeled records are retrieved.
 
-BGE has the highest nDCG and MRR; MiniLM retrieves a slightly larger fraction of the labeled records. Both semantic methods exceed lexical recall. FTS+BGE trails BGE on all four quality metrics. FTS+MiniLM exceeds MiniLM on nDCG alone, so equal-weight fusion does not consistently improve on its semantic component.
+BGE has the highest nDCG and MRR; MiniLM has slightly higher macro recall. They retrieve 153 and 154 relevant record-query hits respectively. That net difference does not identify how many queries differ, and macro recall weights queries equally rather than pooling hits. Both exceed lexical recall. FTS+BGE trails BGE on all four metrics; FTS+MiniLM improves on MiniLM only in nDCG.
 
 <!-- pagebreak -->
 
 ### Development, repetition, and larger pools
 
-Development results are a descriptive re-evaluation of known inputs, not another configuration-selection opportunity. Development has 170 relevant record assignments across its 79 answerable queries, giving a precision@10 ceiling of 170 / 790 = 0.21519. The difference from held-out follows from label counts, not rounded achieved scores.
+Development is a re-evaluation of known inputs whose nDCG previously informed configuration selection, not a neutral selection holdout or a new tuning opportunity. Its 170 relevant record-query assignments across 79 answerable queries, at most five per query, give a precision@10 ceiling of 170 / 790 = 0.21519.
 
 **Table 2. Development results, 79 answerable queries.**
 
@@ -112,9 +112,9 @@ Development results are a descriptive re-evaluation of known inputs, not another
 | FTS+BGE | 0.9498 | 0.1987 | 0.9525 | 0.9030 |
 | FTS+MiniLM | 0.9540 | 0.2000 | 0.9473 | 0.8969 |
 
-The held-out repeat preserves every quality aggregate. Separately written arithmetic recomputed recall, precision, MRR, and nDCG from raw ranks and agreed with the evaluator to 1e-12. This repeat checks stability on the same inputs; it does not supply independent samples or statistical significance.
+The held-out repeat preserves every quality aggregate. A new [separate arithmetic check](../results/validation/arithmetic-source-review.json), executed on 10 September 2026 UTC over all three retained runs, agreed within 1e-12 without importing evaluator metrics. It checks formulas on known ranks, not new retrieval execution, independent samples or statistical significance.
 
-All 25 answerable held-out queries with at most ten eligible candidates obtained recall and nDCG of one for every method. Table 3 retains the other 54 answerable queries, selected by pre-existing pool size rather than retrieval success. This existing descriptive subset leaves all 79 queries in the primary result. The relative recall and nDCG ordering remains the same, with larger gaps after the uniformly perfect cases are set aside.
+On the 25 answerable held-out queries with pools no larger than ten, semantic/hybrid recall is structurally one: all eligible records have indexed passages and fit within k. Lexical still requires term matches; its recall of one is observed. Ideal nDCG of one is observed for all five methods, not implied by pool size. Table 3 describes the other 54 queries by existing pool size; all 79 remain primary. Relative recall and nDCG ordering is unchanged.
 
 **Table 3. Descriptive held-out subset with more than ten eligible candidates.**
 
@@ -132,7 +132,7 @@ The Slate import question requests column order and preview headings. Both seman
 
 The Violet identifier question misses the warmup record under both semantic methods, giving recall of two thirds; lexical also misses the reference record, giving one third. For the Orchard paraphrase, both hybrids miss a trial record retrieved by both semantic-only methods. Fusion can move useful evidence out of the top ten.
 
-All five methods returned nonempty candidate lists for the fifteen empty-relevance queries in each run. No answerability decision rule was evaluated. Some queries ask for an approved positive claim while retained records contradict its premise. Under the empty-gold convention, that counterevidence counts as a false retrieval even though an answerer could use it to reject the premise. These diagnostics show candidate-return behavior under the declared labels, not generated-answer hallucination rates.
+All five methods returned candidates for the fifteen empty-relevance queries in each run. Successful semantic/hybrid search with positive k returns candidates when eligible indexed passages exist; missing artifacts, failed encoding and empty indexed pools are separate cases. No answerability rule was evaluated. The separate empty-gold diagnostics count nonempty lists as false retrievals, even when counterevidence could reject a query's premise. They do not enter the primary quality means or measure generated-answer hallucination.
 
 <!-- pagebreak -->
 
@@ -150,9 +150,9 @@ Measurements came from one Windows x64 host using CPython 3.13.15, PyTorch 2.9.1
 | FTS+BGE | 0.340 | 15.602 |
 | FTS+MiniLM | 0.171 | 6.364 |
 
-Setup includes loading/import work; indexing includes tokenization and passage encoding. All three passes executed lexical, BGE, MiniLM, hybrid BGE, then hybrid MiniLM in that order. Later methods share an already initialized process and may encounter cached pages. These are not independently cold model starts.
+The semantic load timer includes record validation, artifact verification and deferred torch/transformers imports; the first semantic engine encounters framework imports that later engines reuse. Index time includes tokenization and passage encoding; each hybrid sums two real component builds. All three passes ran lexical, BGE, MiniLM, hybrid BGE, then hybrid MiniLM. These are not independently cold model starts, and a faster later build alone does not identify a defect or a timing cause.
 
-**Table 5. Warm query latency, milliseconds; 94 requests per method per pass.**
+**Table 5. Primary held-out (First) and repeat warm latency, ms; 94 requests per method/pass.**
 
 | Method | First p50 ms | First p95 ms | Repeat p50 ms | Repeat p95 ms |
 | --- | --- | --- | --- | --- |
@@ -174,7 +174,7 @@ The primary held-out worker took 60.496 seconds and its repeat 34.159 seconds. Q
 | Heldout | 463.6 | 602 | 60.5 |
 | Heldout repeat | 471.9 | 340 | 34.2 |
 
-The supervisor sampled the owned process every 100 ms under a 2 GiB RSS setting and a 900-second execution bound. All runs exited zero without recorded resource failure; observed maxima remained below 490 MiB. Sampling is not an OS-enforced allocation ceiling and excludes unrelated processes. Neither monetary cost nor energy consumption was measured.
+The semantic path samples RSS after load and each encode batch, aborting above 2 GiB. The supervisor polls every 100 ms and terminates the owned worker on sampled RSS excess or the 900-second bound. These are not OS allocation limits. All runs exited zero without recorded resource failure; sampled maxima stayed below 490 MiB. No monetary cost or energy consumption was measured.
 
 <!-- pagebreak -->
 
@@ -182,7 +182,7 @@ The supervisor sampled the owned process every 100 ms under a 2 GiB RSS setting 
 
 The primary held-out pass performed 3,843 complete-record fetch checks: 723 lexical and 780 for each semantic/hybrid method. Body, provenance, complete-record, synthetic scope, owner, status, and revision mismatch counts were zero. These checks concern retained fixture fidelity; a correctly fetched record can still be irrelevant.
 
-The source archive contains a 171-test evaluator suite. The [editorial validation](../results/validation/editorial-171.json) executed all 171 with zero skips, failures, or errors. The exact downloadable archive is checked separately in the accompanying approval package. The [validation ledger](../results/README.md) keeps each receipt attached to its original source/test identity. The earlier 164-test observation predates seven metadata tests and is historical, not the current archive count.
+The evaluator suite contains 171 tests. The [pre-commit editorial checkout receipt](../results/validation/editorial-171.json) executed them with zero skips, failures or errors and binds unchanged evaluator/test file hashes; its observed HEAD is not the later edited commit. Separately, the [93-file archive of 5e71d766](../results/validation/archive-5e71d766.json) executed 171 tests, fixtures and twelve trace pairs, and rebuilt all report outputs identically using reused local dependencies. It ran no separate retrieval benchmark. The earlier 164-test clean archive acquired assets and ran 94 lexical queries; it did not run semantic inference. The current final archive is checked separately in the approval package. Each event retains its own identity in the [validation ledger](../results/README.md).
 
 There are twelve scenario cases, each supplied with a correct trace and a deliberately incorrect trace: two variant sets covering the same twelve cases and 35 steps per set. The checker accepted all twelve correct variants and rejected all twelve incorrect variants. These are not 24 independent scenarios or observations from a deployed system.
 
@@ -204,7 +204,7 @@ Within this fixed experiment, BGE has the highest held-out nDCG@10 and MRR@10. M
 
 The source distribution includes evaluator/adapters, fixture generators and JSON, tests, pinned acquisition recipes, raw gzip bundles, static per-query reports, and this editable manuscript and builder. Model weights and dependency binaries are acquired separately. The supported initial target is Windows x64 with CPython 3.13.
 
-The [installation guide](../docs/INSTALLATION.md) supplies exact PowerShell commands for staging, validation, fixed-protocol runs, comparison, and negative checks. Use new output directories; changing bound inputs requires new declarations and observations. The [results ledger](../results/README.md) links existing runs and the new editorial checks. The [report build guide](BUILD.md) explains automatic tables/figures and exact-input binding. This editorial pass rebuilds presentation and metadata without new retrieval measurements.
+Two reproduction targets are distinct. Rescoring retained bundles and rebuilding this report reuse existing rankings without inference; re-executing retrieval creates new observations with staged models. The [installation guide](../docs/INSTALLATION.md) gives both paths. Use new output directories and declarations for changed inputs. The [results ledger](../results/README.md), [verification notes](../docs/VERIFICATION.md), and [report build guide](BUILD.md) identify receipts, arithmetic/tokenizer checks and automatic table generation. Neither same-host repetition nor retained-rank agreement proves identical results or timings on another host.
 
 The retained hippo_eval namespace and schema tokens are compatibility identifiers. Adapters expose build, search, fetch, and close operations and report their identities; no final product transport or authority service is assumed.
 

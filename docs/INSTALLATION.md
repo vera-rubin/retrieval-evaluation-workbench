@@ -91,9 +91,13 @@ They preserve both existing splits and their labels.
 
 Run these sequentially. Each `run` defaults to lexical, BGE, MiniLM, lexical+BGE
 and lexical+MiniLM. The evaluator permits one active inference process and at
-most two compute threads, with a sampled 2 GiB RSS guard and a default
-900-second run bound. The RSS guard is a sampled observation, not an OS hard
-allocation ceiling. Each method rebuilds its index; models run on the CPU.
+most two compute threads and a 2 GiB RSS setting. The semantic path samples its
+own RSS after model load and every encode batch, raising an error above the
+limit. The supervisor polls the owned worker every 100 ms and terminates it
+on a sampled RSS excess or the default 900-second run bound. These abort checks
+are not an OS hard allocation ceiling. Each method rebuilds its index; models
+run on the CPU. Seed 17 is passed to `torch.manual_seed` at model load; eval mode
+and `torch.inference_mode` do not establish cross-host determinism.
 
 The protocol binds current source-file, dependency, fixture, configuration and
 model identities. Editing any bound input invalidates the declaration; create
@@ -112,6 +116,14 @@ development --out <new-directory>`. The models are not needed for this path,
 but the pinned APSW and process-monitor packages must be installed.
 
 ## Results and extension
+
+There are two reproduction targets. Rescoring the retained bundles and rebuilding
+their report requires no model execution; see the [results ledger](../results/README.md).
+The commands above re-execute retrieval with newly acquired local artifacts and
+produce new runtime observations. Neither a retained-rank arithmetic check nor
+a same-host repeat proves identical results or timings on a different host.
+The [bundled implementation bounds](INTERFACES.md#bounds-of-the-bundled-implementations)
+describe the lexical SQL/term caps and model-token limits relevant to new inputs.
 
 Each completed run emits `run.json.gz`, `analysis.json`, `report.json`,
 `report.md`, `report.html`, an execution plan and a sampled resource receipt.

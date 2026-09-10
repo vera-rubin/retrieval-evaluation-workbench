@@ -8,8 +8,9 @@ search method.
 
 The corpus contains 300 records in 30 story families and 188 queries. There are
 94 development queries and 94 queries in the original held-out split, with
-fifteen families assigned to each. Every run indexes the complete 300-record
-corpus. The split withholds query scoring and relevance use for configuration
+fifteen families assigned to each. Both splits use the same 300-record corpus;
+the 291 records with retained bodies are indexed, and each query ranks only
+eligible records. The split withholds query scoring and relevance use for configuration
 selection; it does not hide documents from indexing. The original held-out split
 is now known, so publication executions are reproductions or re-evaluations.
 
@@ -20,7 +21,7 @@ records, queries and relevance labels as synthetic material. The fixture
 construction used no real project corpus. Labels follow the authored text and
 explicit scope rules. They have not been validated by human annotators.
 
-A second model-assisted reviewer inspected twenty queries against their records
+A second model-assisted reviewer inspected twenty of 188 queries against their records
 and rules before the first full comparison, without retrieval scores: ten
 development and ten held-out queries. This bounded review found two missing
 grade-1 illustrations. The Orchard trial illustrates the rain rule in its
@@ -86,7 +87,8 @@ context rather than repeated padding.
 
 There are 253 current, 29 superseded, seven disputed, two revoked and nine deleted
 records. The nine deleted records have no body; 291 records can be indexed.
-Eligible-set sizes have minimum/median/maximum 1/36/43. Fifty of 158 answerable
+Eligible-set sizes, computed after rejecting null bodies and applying each
+query's rules, have minimum/median/maximum 1/36/43. Fifty of 158 answerable
 queries have at most ten eligible records, 25 per split. Top-ten recall is
 potentially trivial for those cases. The remaining 108 answerable queries have
 more than ten eligible candidates. Inspect the per-query audit and pool-stratified

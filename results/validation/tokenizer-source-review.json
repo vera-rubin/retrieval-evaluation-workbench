@@ -1,0 +1,353 @@
+{
+  "schema": "retrieval-tokenizer-coverage/v1",
+  "created_at": "2026-09-10T03:47:21.259818+00:00",
+  "execution": "actual pinned-tokenizer-only inspection; no model weights loaded, no forward pass, no retrieval scoring",
+  "source_files": {
+    "scripts/inspect_chunk_coverage.py": "5ddfad2f79988d17d567145a7d7de163ad182f657d314117c97598d0bfde40fd",
+    "hippo_eval/retrieval.py": "91502db1083576d6b1de203b287c9c2dc7a1a8343a360f966ee7002096216387",
+    "hippo_eval/contracts.py": "9eba34f328738af2b06376fe8fc054191b08d23b15bd2e17ba1f5febd112c91e"
+  },
+  "corpus_sha256": "387b832dccdf3ca6cde85c4e6fc0553c4dad700b04f4d359232e87ad59e78aed",
+  "queries_sha256": "5aa1d48589086bbe29984a64265423878987620bd14ff058cb0977897a6c10bd",
+  "reference_raw_sha256": "48d796177c2ecf9289a72e5d075d17c4dfa9cc294f28fc3130e381c4ef382790",
+  "fixture_and_helper_identities_match_retained_run": true,
+  "configuration": {
+    "chunk_tokens_including_special_tokens": 240,
+    "overlap_content_tokens": 32,
+    "truncation": false
+  },
+  "dependencies": {
+    "transformers": "4.57.1",
+    "tokenizers": "0.22.1"
+  },
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "corpus_records": 300,
+  "excluded_null_body_records": 9,
+  "indexable_records": 291,
+  "candidate_fields": 582,
+  "nonempty_candidate_fields": 582,
+  "total_source_characters": 56741,
+  "models": [
+    {
+      "model_key": "bge",
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "tokenizer_class": "BertTokenizerFast",
+      "special_tokens_per_single_sequence": 2,
+      "verified_tokenizer_assets": [
+        {
+          "file": "config.json",
+          "sha256": "094f8e891b932f2000c92cfc663bac4c62069f5d8af5b5278c4306aef3084750",
+          "bytes": 743,
+          "git_blob_id": "3992bf890728a92476c700e6e657fd696eb94160"
+        },
+        {
+          "file": "special_tokens_map.json",
+          "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+          "bytes": 125,
+          "git_blob_id": "a8b3208c2884c4efb86e49300fdd3dc877220cdf"
+        },
+        {
+          "file": "tokenizer.json",
+          "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "bytes": 711396,
+          "git_blob_id": "688882a79f44442ddc1f60d70334a7ff5df0fb47"
+        },
+        {
+          "file": "tokenizer_config.json",
+          "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+          "bytes": 366,
+          "git_blob_id": "37fca74771bc76a8e01178ce3a6055a0995f8093"
+        },
+        {
+          "file": "vocab.txt",
+          "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+          "bytes": 231508,
+          "git_blob_id": "fb140275c155a9c7c5a3b3e0e77a9e839594a938"
+        }
+      ],
+      "local_manifest_sha256": "fbfe6749e6d59a66e913fc6d94cabaeb59821c17d9b1a30bb350151329a356b4",
+      "local_manifest_matches_retained_run": true,
+      "candidate_fields": 582,
+      "nonempty_fields": 582,
+      "indexed_fields": 582,
+      "indexed_records": 291,
+      "chunks": 588,
+      "matches_retained_indexed_chunks": true,
+      "multi_chunk_fields": 6,
+      "multi_chunk_bodies": 6,
+      "multi_chunk_titles": 0,
+      "maximum_chunks_per_field": 2,
+      "field_chunk_histogram": {
+        "1": 576,
+        "2": 6
+      },
+      "record_chunk_histogram": {
+        "2": 285,
+        "3": 6
+      },
+      "maximum_content_tokens_per_field": 276,
+      "maximum_chunk_tokens": 240,
+      "all_nonempty_fields_have_exact_full_coverage": true,
+      "multi_chunk_details": [
+        {
+          "record_id": "r-birch_notebooks-journal",
+          "field": "body",
+          "source_characters": 1453,
+          "source_utf8_bytes": 1453,
+          "source_field_sha256": "1ba9e0996649ef8529b31f8604490de77fa49994bf05e1736f1839c93c21a732",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 257,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            53
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-delta_routing-journal",
+          "field": "body",
+          "source_characters": 1545,
+          "source_utf8_bytes": 1545,
+          "source_field_sha256": "adb7f6d2a96c79c2eb54416c4d7e19fbe4d04156f6d022bb1ed3834e72826db0",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 276,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            72
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-ember_rollbacks-journal",
+          "field": "body",
+          "source_characters": 1493,
+          "source_utf8_bytes": 1493,
+          "source_field_sha256": "7499e4d35ec52ed248d72aa1975d215ec7b8c0fc9c348d854ef323a4b5364b78",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 275,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            71
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-harbor_retries-journal",
+          "field": "body",
+          "source_characters": 1454,
+          "source_utf8_bytes": 1454,
+          "source_field_sha256": "e1fd025c69df04f67772b36aeff0afb35311ba3864015cb58a9489506941783a",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 267,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            63
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-juniper_audio-journal",
+          "field": "body",
+          "source_characters": 1487,
+          "source_utf8_bytes": 1487,
+          "source_field_sha256": "05550b88118706871a91ed0e645302beab1c98266e5efb036c8c983b18c054d8",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 264,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            60
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-marina_metrics-journal",
+          "field": "body",
+          "source_characters": 1489,
+          "source_utf8_bytes": 1489,
+          "source_field_sha256": "e22a3fde6e60cc190b3c7751bb9fde355e45951d8416e0739673c13fd8072235",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 267,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            63
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        }
+      ],
+      "chunk_metadata_digest": "3c1315dc5ce4f3c7e4a8e8c56a0dc60a0b1facf662a039d84e68e78d61d48fb4",
+      "elapsed_seconds": 0.11750240001128986
+    },
+    {
+      "model_key": "minilm",
+      "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "tokenizer_class": "BertTokenizerFast",
+      "special_tokens_per_single_sequence": 2,
+      "verified_tokenizer_assets": [
+        {
+          "file": "config.json",
+          "sha256": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+          "bytes": 612,
+          "git_blob_id": "72b987fd805cfa2b58c4c8c952b274a11bfd5a00"
+        },
+        {
+          "file": "special_tokens_map.json",
+          "sha256": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+          "bytes": 112,
+          "git_blob_id": "e7b0375001f109a6b8873d756ad4f7bbb15fbaa5"
+        },
+        {
+          "file": "tokenizer.json",
+          "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+          "bytes": 466247,
+          "git_blob_id": "cb202bfe2e3c98645018a6d12f182a434c9d3e02"
+        },
+        {
+          "file": "tokenizer_config.json",
+          "sha256": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+          "bytes": 350,
+          "git_blob_id": "c79f2b6a0cea6f4b564fed1938984bace9d30ff0"
+        },
+        {
+          "file": "vocab.txt",
+          "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+          "bytes": 231508,
+          "git_blob_id": "fb140275c155a9c7c5a3b3e0e77a9e839594a938"
+        }
+      ],
+      "local_manifest_sha256": "c1c6c0652d46e62b1dc4bb2f0d503ff70a3597e96f65a837127467fa4fb3977b",
+      "local_manifest_matches_retained_run": true,
+      "candidate_fields": 582,
+      "nonempty_fields": 582,
+      "indexed_fields": 582,
+      "indexed_records": 291,
+      "chunks": 588,
+      "matches_retained_indexed_chunks": true,
+      "multi_chunk_fields": 6,
+      "multi_chunk_bodies": 6,
+      "multi_chunk_titles": 0,
+      "maximum_chunks_per_field": 2,
+      "field_chunk_histogram": {
+        "1": 576,
+        "2": 6
+      },
+      "record_chunk_histogram": {
+        "2": 285,
+        "3": 6
+      },
+      "maximum_content_tokens_per_field": 276,
+      "maximum_chunk_tokens": 240,
+      "all_nonempty_fields_have_exact_full_coverage": true,
+      "multi_chunk_details": [
+        {
+          "record_id": "r-birch_notebooks-journal",
+          "field": "body",
+          "source_characters": 1453,
+          "source_utf8_bytes": 1453,
+          "source_field_sha256": "1ba9e0996649ef8529b31f8604490de77fa49994bf05e1736f1839c93c21a732",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 257,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            53
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-delta_routing-journal",
+          "field": "body",
+          "source_characters": 1545,
+          "source_utf8_bytes": 1545,
+          "source_field_sha256": "adb7f6d2a96c79c2eb54416c4d7e19fbe4d04156f6d022bb1ed3834e72826db0",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 276,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            72
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-ember_rollbacks-journal",
+          "field": "body",
+          "source_characters": 1493,
+          "source_utf8_bytes": 1493,
+          "source_field_sha256": "7499e4d35ec52ed248d72aa1975d215ec7b8c0fc9c348d854ef323a4b5364b78",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 275,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            71
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-harbor_retries-journal",
+          "field": "body",
+          "source_characters": 1454,
+          "source_utf8_bytes": 1454,
+          "source_field_sha256": "e1fd025c69df04f67772b36aeff0afb35311ba3864015cb58a9489506941783a",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 267,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            63
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-juniper_audio-journal",
+          "field": "body",
+          "source_characters": 1487,
+          "source_utf8_bytes": 1487,
+          "source_field_sha256": "05550b88118706871a91ed0e645302beab1c98266e5efb036c8c983b18c054d8",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 264,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            60
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        },
+        {
+          "record_id": "r-marina_metrics-journal",
+          "field": "body",
+          "source_characters": 1489,
+          "source_utf8_bytes": 1489,
+          "source_field_sha256": "e22a3fde6e60cc190b3c7751bb9fde355e45951d8416e0739673c13fd8072235",
+          "nonempty": true,
+          "content_tokens_without_special_tokens": 267,
+          "chunks": 2,
+          "chunk_token_counts": [
+            240,
+            63
+          ],
+          "whole_nonempty_field_covered_by_exact_substrings": true
+        }
+      ],
+      "chunk_metadata_digest": "3c1315dc5ce4f3c7e4a8e8c56a0dc60a0b1facf662a039d84e68e78d61d48fb4",
+      "elapsed_seconds": 0.11810289998538792
+    }
+  ],
+  "runtime_checks": {
+    "torch_imported": false,
+    "model_forward_passes": 0,
+    "tokenizer_parallelism": "disabled",
+    "compute_environment_thread_limit": 2,
+    "peak_sampled_rss_bytes": 87359488,
+    "elapsed_seconds": 1.5879583000205457
+  },
+  "detail_scope": "Per-field rows omitted from this compact receipt; --details-out writes full observed details."
+}

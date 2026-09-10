@@ -11,6 +11,13 @@ These revisions do not change scientific code, fixtures, labels, configurations,
 dependency/model pins, or retained observations. No model benchmark was rerun
 for the editorial pass.
 
+The source-informed clarification pass adds eligible-pool scale, conditional
+semantic/fusion behavior, actual chunk coverage, source-scoped input bounds,
+and precise arithmetic/archive evidence lineage. New verification utilities
+inspect retained ranks and pinned tokenizers without retrieval inference.
+The fixture methodology's indexing sentence now distinguishes 300 corpus
+objects from 291 indexed records; fixture objects and labels are unchanged.
+
 The standalone source distribution includes five local retrieval methods,
 versioned synthetic inputs, eligibility and full-record validation, strict
 result and trace checking, regression comparisons, pinned acquisition,

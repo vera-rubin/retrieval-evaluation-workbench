@@ -12,7 +12,9 @@ the same synthetic project records, eligibility rules, and complete-record check
 
 The corpus has 300 records; the nine deleted records have null bodies, leaving
 291 records whose titles and bodies are indexed. Both query splits use that same
-corpus, and **each query ranks only its eligible records**. The 188 labeled queries
+corpus, and **each query ranks only its eligible records**: pools range from 1
+to 43 records, with median 36, after excluding null bodies and applying the
+query's rules. The 188 labeled queries
 cover facts, decisions, preferences, observations, code references, historical
 revisions, and requests requiring several records.
 
@@ -30,7 +32,10 @@ nDCG@10 (0.9588) and MRR@10 (0.9852). MiniLM has slightly higher recall@10
 (0.9863 versus 0.9831); lexical recall is 0.9363. The two equal-weight hybrids
 do not consistently improve over their semantic components. A held-out repeat
 preserves every quality aggregate. The existing 54-query larger-pool subset is
-reported beside the full analysis, without replacing it.
+reported beside the full analysis, without replacing it. On the other 25
+answerable held-out queries, semantic/hybrid recall saturates because top ten
+covers every eligible indexed record; lexical recall and all methods' ideal
+nDCG on those cases are observed results.
 
 Warm p50 latency is reported for the primary and repeat passes together:
 BGE 20.74 / 11.69 ms, MiniLM 11.95 / 5.83 ms, and lexical 2.74 / 1.60 ms,
@@ -39,7 +44,9 @@ full-record fetch, and fidelity hashing. The variation is part of the result;
 its cause was not isolated. No monetary or energy savings were measured.
 
 All five methods returned nonempty candidate lists for the fifteen empty-relevance
-queries. No answerability decision rule was evaluated. Under the declared labels,
+queries. Successful semantic/fusion searches return candidates when k is positive
+and eligible indexed passages exist; this is not an answerability decision rule.
+Missing artifacts and failed execution are separate outcomes. Under the declared labels,
 counterevidence can count as a false retrieval even when it could help an answerer
 reject a false premise.
 
@@ -79,6 +86,7 @@ current editorial/archive checks from earlier receipts. The twelve correct
 trace variants pass and the twelve deliberate incorrect variants are rejected.
 
 See [fixture methodology](fixtures/README.md), [evidence identities](docs/PUBLIC_EVIDENCE.md),
+[arithmetic, chunk coverage, and archive verification](docs/VERIFICATION.md),
 [interfaces](docs/INTERFACES.md), and the [adapter boundary](docs/ADAPTER_CONTRACT.md).
 
 ## Scope and limits

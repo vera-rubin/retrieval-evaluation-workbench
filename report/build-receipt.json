@@ -14,7 +14,7 @@
       "raw_sha256": "7d58cd828a9d9a763b107b8b1bc72586994a8175c38b2b9d7bc5c7277456bf8b"
     }
   ],
-  "manuscript_sha256": "7e70152707fde1b95fce16a4cfb8f035c11230a38d27d5513fe09c6936ff45b5",
+  "manuscript_sha256": "d48884f88c9d6711ec123ae7abbdf297fa5852e1a68d6ca97f4a9780db277384",
   "builder_sha256": "019da6c742f61c791b63c46d26a66bba8709d8c9c6ed1d8914a34024eb333615",
   "inputs_manifest_sha256": "4ed12495ca4f30b5ec523fc832ca726753f00ff7b8c46c76a2492ce1c1a8746f",
   "dependencies": {
@@ -24,9 +24,9 @@
     "pypdf": "6.10.0"
   },
   "outputs": {
-    "report.md": "26406373dd029897dc775be0cb3b119b1f1cf3c7a5ed41ffc97f33507011e40b",
-    "report.html": "0fee50eec73e08ba81182c6c55a516e2945ff1f9cca59c30ebd020437b0f5463",
-    "report.pdf": "4aa136d98cc3530aa8cff0ddb238b68f1507d0a2cfdd2cfab36c691ee7a069d1",
+    "report.md": "c8f472705c46cb65e99b3f5ba0c3907b9080f0290a67bab09f5a6be3c79f8b36",
+    "report.html": "78b9d31c6d41875a9e81199d4a04ca71e2e96df3c5023e87e170b66428f59664",
+    "report.pdf": "718521414e4a5c1828ef82f29eb7546186dbc46a7f2e7581cd45c806416e8056",
     "figures/quality.svg": "9ef55c1ca57f69386ddd17c9a4c5e1d120e07579d89a75e37da8260c017b2bb3"
   },
   "scope": "Observed synthetic retrieval results; known query splits; no retuning or inferential significance claims"
