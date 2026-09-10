@@ -1,39 +1,27 @@
-# Proposed v1.0.0
+# Version 1.0.0
 
-Release candidate prepared for author review. No release date or DOI has been
-assigned, and no publication is implied by the proposed version.
+This version includes five retrieval configurations: SQLite FTS5 BM25,
+BGE-small-en-v1.5, all-MiniLM-L6-v2, and two lexical/semantic combinations
+using reciprocal-rank fusion.
 
-The current editorial candidate uses the public byline Nathan Chandrasekar,
-reorganizes the report around the retrieval task and measured quality, and
-clarifies query eligibility, metric ceilings, trace variants, and validation
-lineage. The closing tooling note includes Anthropic Claude's editorial role.
-These revisions do not change scientific code, fixtures, labels, configurations,
-dependency/model pins, or retained observations. No model benchmark was rerun
-for the editorial pass.
+The distribution contains:
 
-The source-informed clarification pass adds eligible-pool scale, conditional
-semantic/fusion behavior, actual chunk coverage, source-scoped input bounds,
-and precise arithmetic/archive evidence lineage. New verification utilities
-inspect retained ranks and pinned tokenizers without retrieval inference.
-The fixture methodology's indexing sentence now distinguishes 300 corpus
-objects from 291 indexed records; fixture objects and labels are unchanged.
+- 300 synthetic records and 188 labeled queries, with filtering rules and
+  development/held-out splits;
+- retrieval, complete-record, result, and scenario checks, including a
+  171-test evaluator suite and twelve pairs of correct/incorrect traces;
+- machine-readable observations, per-query reports, comparison tools, and
+  separate arithmetic and tokenizer-inspection utilities;
+- pinned dependency/model acquisition, fixed-configuration reproduction
+  commands, and an adapter interface for other retrieval implementations;
+- the technical report, editable source, HTML/PDF, and generated tables/figure.
 
-The standalone source distribution includes five local retrieval methods,
-versioned synthetic inputs, eligibility and full-record validation, strict
-result and trace checking, regression comparisons, pinned acquisition,
-reproduction commands, machine-readable observations, and a technical report.
+The tested platform is Windows x64 with CPython 3.13.15. Inference runs locally
+on the CPU. Model weights and dependency binaries are acquired separately;
+the source distribution includes their identities and notices.
 
-Reliability coverage includes nonzero comparison exits on regression or
-incompatibility while preserving reports; rejection of empty or wholly
-unexecuted test discovery; dependency bootstrap for a selected artifact root
-before CLI import and identity capture; and deterministic inference-lock
-ownership, stale recovery, PID reuse, live-worker protection and zombie handling.
-
-The export preserves retrieval text and labels, deliberately changes public
-metadata and generic scenario examples, and measures new runs under the release
-source identity. See [evidence scope](docs/PUBLIC_EVIDENCE.md) and the
-[technical report](report/report.md). Windows CPython 3.13 x64 is the initial
-tested platform. Model weights and third-party binaries are acquired separately.
-
-The source distribution contains no release or deployment automation. Later
-publication requires approval of the exact commit and release assets.
+The recorded comparison uses small, related synthetic projects and known query
+splits. Timing and sampled memory observations come from one host. See the
+[report](report/report.html) for findings and limitations, the
+[installation guide](docs/INSTALLATION.md) for resource requirements, and
+[verification records](docs/VERIFICATION.md) for the checks performed.

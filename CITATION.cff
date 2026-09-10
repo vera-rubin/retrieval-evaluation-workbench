@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the software and version. Version 1.0.0 is currently a release candidate, not a published release."
+message: "If you use this software, please cite this work and the version used."
 type: software
 title: "Reproducible Retrieval Evaluation: A Workbench for Lexical, Semantic, and Hybrid Search"
 version: 1.0.0
@@ -16,22 +16,29 @@ keywords:
   - semantic search
   - hybrid search
   - research software
-abstract: >-
-  I present a standalone evaluation workbench for lexical, semantic, and hybrid
-  retrieval over a fixed synthetic corpus. It compares SQLite FTS5 BM25,
-  BGE-small-en-v1.5, all-MiniLM-L6-v2, and two reciprocal-rank-fusion combinations.
-  The software includes 300 synthetic records, 188 explicitly labeled queries,
-  scope and status eligibility, exact full-record checks, result-contract tests,
-  supplied-trace checking, compatible-run comparison, and static reports. Pinned
-  model revisions and dependencies support local CPU reproduction on the tested
-  Windows CPython 3.13 x64 platform. An accompanying technical report documents
-  methods, measured re-evaluation, and limitations. The known historical query
-  split is re-evaluated without retuning; it is not a newly blinded experiment.
-  The fixtures and labels are model-authored synthetic examples, not a
-  human-validated benchmark. This is software with an accompanying report,
-  not a peer-reviewed journal publication.
+abstract: |-
+  I built this research software to compare five search configurations:
+  SQLite FTS5 BM25, BGE-small-en-v1.5, all-MiniLM-L6-v2, and lexical fusion
+  with each embedding model using reciprocal rank fusion. The workbench measures
+  which relevant records are retrieved, how well they are ranked, and how long
+  queries take. It checks complete returned records, distinguishes failed runs
+  from valid measurements, and produces inspectable results and comparisons.
 
-  AI use: OpenAI Codex assisted software development, synthetic-fixture and label
-  generation, analysis, review, visualization code, and manuscript preparation;
-  Anthropic Claude assisted editorial review and revision.
-  I retain responsibility for the approved published content.
+  The synthetic dataset contains 300 corpus records, 291 indexed records,
+  and 188 labeled queries. Query-specific eligible pools range from 1 to 43
+  records, with a median of 36. The recorded runs use a development-selected
+  fixed configuration on known development and held-out query splits.
+
+  BGE gives the strongest held-out ranking quality by nDCG@10 and MRR. MiniLM
+  has slightly higher held-out recall@10 and lower observed query latency in
+  both held-out passes.
+  Equal-weight lexical fusion has mixed effects and does not consistently
+  improve the semantic methods. I interpret these findings within the small
+  synthetic candidate pools and the measured Windows CPU setting.
+
+  Pinned dependency versions and model revisions support reproduction on the
+  tested Windows CPython 3.13 x64 platform. This software includes an
+  accompanying technical report with the methods, measured results, failure
+  cases, and reproducibility instructions.
+
+  AI assistance: OpenAI Codex and ChatGPT—software, synthetic data and labels, analysis, figures, and drafting; Anthropic Claude—editing and review.

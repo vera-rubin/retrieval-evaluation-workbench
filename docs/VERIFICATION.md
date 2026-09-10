@@ -1,9 +1,8 @@
 # Evidence checks and reproduction targets
 
-These checks support the accompanying report without changing its inputs,
-rankings or numerical tables. The original held-out query split is already
-known. No new embedding execution or configuration selection was performed for
-the source-informed clarifications.
+This guide distinguishes checks on retained rankings, tokenizer inspection,
+software tests and retrieval executions. The held-out query split is already
+known. Arithmetic and report rebuilding reuse its recorded rankings.
 
 ## Retained-rank arithmetic
 
@@ -11,29 +10,25 @@ the source-informed clarifications.
 builder uses that summarizer. They regenerate tables and validate the result
 contract, but are not separate arithmetic implementations.
 
-The earlier 1e-12 agreement statement referred to a separately written
-calculation of the development and primary held-out aggregates. That checker
-used the evaluator for its reference scores and comparison, but calculated its
-second set of recall, precision, MRR and nDCG values in its own loops. It did not
-independently recalculate the repeat, and its receipt did not bind the checker
-hash or explicitly record the tolerance. That historical event has not been
-rerun or retroactively given a stronger identity.
+An earlier arithmetic check covered development and primary held-out aggregates.
+It used the evaluator for reference scores, then calculated recall, precision,
+MRR and nDCG separately. It excluded the repeat, and its test record omitted the
+checker hash and explicit tolerance. The dated check below is a separate event.
 
-The new [check_arithmetic.py](../scripts/check_arithmetic.py) uses only the Python
+The [check_arithmetic.py](../scripts/check_arithmetic.py) utility uses only the Python
 standard library and does not import the evaluator. It recalculates metrics
-from raw ranked IDs and fixture relevance, then compares them with the retained
-summary after checking raw-file, fixture and configuration identities. It
-supports successful completed runs and refuses missing or failed observations;
-it is not a second full result-contract validator or a relevance-label audit.
+from raw ranked IDs and dataset relevance labels, then compares them with the
+retained summary after checking raw-file, dataset and configuration identities. It
+supports successful completed runs and refuses missing or failed observations.
+Its scope is arithmetic; result-contract and label checks are separate.
 
-The [dated receipt](../results/validation/arithmetic-source-review.json) records
-the new execution on 10 September 2026 UTC: three raw runs, five methods per
+The [test record](../results/validation/arithmetic-source-review.json) records
+execution on 10 September 2026 UTC: three raw runs, five methods per
 run, 13 literal/rejection self-checks, and 7,140 numerical comparisons across
 per-query, method and category values. Maximum absolute difference was
-3.3306690738754696e-16, within 1e-12. The self-checks use small hand-calculated
-examples and malformed inputs; they are not additional benchmark queries.
-The formulas were separately implemented within the same model-assisted
-project, not independently certified by another institution.
+3.3306690738754696e-16, within 1e-12. Its 13 self-checks use hand-calculated
+examples and malformed inputs, separate from the benchmark queries. The formulas
+are a second implementation within this project.
 
 ```powershell
 .\.venv\Scripts\python.exe -I -B scripts\check_arithmetic.py --out .artifacts\checks\arithmetic-new.json
@@ -51,10 +46,10 @@ difference alone cannot identify how many rankings or query outcomes differ.
 Empty-gold queries are excluded from the four primary quality means. Separate
 diagnostics count successful empty lists, queries with nonempty lists, total
 returned records, and an empty-list rate named `unanswerable_abstention_rate`.
-That field name does not imply that an answerability decision rule was tested.
-An error is not counted as a successful empty-list response.
+This rate describes returned lists, not an answerability decision. An error
+does not count as a successful empty-list response.
 
-## Actual chunk coverage
+## Tokenizer and chunk coverage
 
 The [tokenizer-only utility](../scripts/inspect_chunk_coverage.py) checks the
 staged tokenizer files against the pinned model revisions and retained run
@@ -62,38 +57,37 @@ hashes, then calls the existing chunker with the established 240-token budget
 and 32-token overlap. It disables model frameworks and tokenizer parallelism,
 uses local files only, and loads no model weights or forward passes.
 
-The [separate inspection receipt](../results/validation/tokenizer-source-review.json)
+The [inspection record](../results/validation/tokenizer-source-review.json)
 identifies the utility, inputs, tokenizers and execution. For each model the
 291 indexed records have 582 nonempty title/body fields, yielding 588 chunks:
 576 one-chunk fields and six two-chunk bodies; no title splits and no field
 has more than two chunks. Exact source substrings cover all nonempty fields.
-This is observed token coverage, not an inference from character lengths or
-the aggregate count 588. The corpus gives limited evidence about long-document
-chunking. Focused software tests use `SimpleOffsetTokenizer`, including an
-artificial six-token budget; those tests do not execute either embedding model.
+These counts come from the tokenizer inspection. The corpus exercises at most
+two chunks per field, which limits its coverage of long-document behavior.
+Software tests also use `SimpleOffsetTokenizer`, including a six-token budget;
+those tests do not execute either embedding model.
 
 ```powershell
 .\.venv\Scripts\python.exe -I -S -B scripts\inspect_chunk_coverage.py --artifacts .artifacts --out .artifacts\checks\tokenizers-new.json
 ```
 
-The utility is bounded to the retained corpus/configuration and already staged
-assets. It is not a download tool or a new retrieval benchmark. Model weights
-and dependency files remain outside the source archive.
+The utility uses the retained dataset/configuration and already staged assets.
+Acquire dependencies and tokenizer files before running it; it downloads nothing.
 
 ## Archive and checkout evidence
 
-| Event | What executed | What was not established |
+| Event | Checks performed | Execution scope |
 |---|---|---|
-| [Initial clean archive: 164 tests](../results/validation/clean-archive.json) | Fresh documented acquisition, tests, fixture/trace checks, and 94 lexical queries | No semantic inference from that archive; no cross-host result equality |
-| [Pre-commit editorial checkout: 171 tests](../results/validation/editorial-171.json) | Unchanged evaluator/test file identities, fixtures, trace pairs and focused reliability checks | Its observed HEAD does not identify the later edited commit; no new model benchmark |
-| [Exact 93-file archive at 5e71d766](../results/validation/archive-5e71d766.json) | 171 tests with zero skips/failures/errors, fixtures, twelve trace pairs, exact file checks and byte-identical report rebuild | Reused runtime dependencies; no new acquisition or separate retrieval run |
+| [Initial clean archive: 164 tests](../results/validation/clean-archive.json) | Fresh documented acquisition, tests, dataset/trace checks, and 94 lexical queries | Both models acquired; semantic inference not run from this archive |
+| [Expanded suite: 171 tests](../results/validation/evaluator-171.json) | Seven test files; zero skips, failures or errors | Checkout validation of the expanded test suite |
+| [171-test rerun](../results/validation/evaluator-171-candidate.json) | Test rerun after text files were matched to the declared LF archive format | Evaluator source and raw results unchanged |
+| [Pre-commit checkout: 171 tests](../results/validation/editorial-171.json) | Evaluator/test hashes, dataset, trace pairs and focused reliability checks | Edits were present; recorded HEAD identifies the pre-commit state |
+| [93-file archive at 5e71d766](../results/validation/archive-5e71d766.json) | 171 tests with zero skips/failures/errors, dataset, twelve trace pairs, exact file checks and byte-identical report rebuild | Existing dependencies reused; no acquisition or separate retrieval run |
 
-The 34-test reliability group is a subset of the 171-test suite, not an additional
-34 distinct tests. The archive summary is a disclosed derivative with its
-original receipt hash and archived commit; private approval records remain
-private. Each later final candidate repeats archive checks with a new exact
-commit/tree and receipt in its approval package. Historical checks never become
-observations of changed release bytes.
+The 34-test reliability group is a subset of the 171-test suite. The archive
+summary records its archived commit and the hash of its source test record.
+Each event applies to those recorded files. The [results ledger](../results/README.md)
+links the separate test and retrieval outputs.
 
 ## Retrieval behavior and execution limits
 
@@ -109,8 +103,7 @@ The lexical component contributes term matches only. Each hybrid requests full
 available component rankings before final top-k fusion. A lexical nonmatch gets
 no lexical reciprocal-rank contribution. This source-level mechanism does not
 by itself identify the cause of the Orchard miss: retained top-ten lists do
-not provide all component ranks used by that fusion. The report retains the
-observed miss without inventing a component-rank explanation.
+not provide all component ranks used by that fusion.
 
 The [interface guide](INTERFACES.md#bounds-of-the-bundled-implementations) scopes
 the 10,000-row SQL bound and 256 deduplicated lexical-term cap to the affected
@@ -127,11 +120,10 @@ fetch and fidelity checks, while setup/indexing is outside that timer. The
 different recorded build and query times have no isolated causal explanation.
 
 The semantic engine checks its own RSS after load and every encoding batch and
-raises an error on excess. The supervisor polls the owned worker every 100 ms
+raises an error on excess. The supervisor polls the run's inference process every 100 ms
 and kills it on observed RSS/time excess. Both are sampled abort checks, not an
 OS allocation ceiling or a guarantee that a transient peak was observed.
 
-Rescoring retained bundles, checking their arithmetic and rendering the report
-reuse the existing ranks. Re-executing retrieval on another host is a different
-target requiring new observations; neither same-host repeats nor archive tests
-establish identical cross-host scores, timing or resource use.
+To measure retrieval on another host, execute the methods and save new runs.
+Same-host repetition and archive tests do not establish cross-host equality of
+scores, timing or resource use.

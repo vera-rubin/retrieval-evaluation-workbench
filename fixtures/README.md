@@ -1,37 +1,35 @@
-# Synthetic retrieval fixtures
+# Synthetic retrieval dataset
 
-The materialized evaluation inputs are `corpus.json` and `queries.json`.
+The evaluation inputs are `corpus.json` and `queries.json`.
 The six `cases_*.py` files contain readable story specifications;
 `build_fixtures.py` deterministically generates the JSON and `audit.json`.
-The generator does not inspect retrieval results or change labels to match a
-search method.
+The generator uses the story specifications and does not read retrieval results.
 
 The corpus contains 300 records in 30 story families and 188 queries. There are
 94 development queries and 94 queries in the original held-out split, with
 fifteen families assigned to each. Both splits use the same 300-record corpus;
 the 291 records with retained bodies are indexed, and each query ranks only
-eligible records. The split withholds query scoring and relevance use for configuration
-selection; it does not hide documents from indexing. The original held-out split
-is now known, so publication executions are reproductions or re-evaluations.
+eligible records. The original split withheld query scoring and relevance use
+during configuration selection, while all documents were available for indexing.
+The held-out split is now known, so new executions are reproductions or re-evaluations.
 
 ## Construction and review
 
-OpenAI Codex generated the stories, identifiers, paths, people, source references,
-records, queries and relevance labels as synthetic material. The fixture
-construction used no real project corpus. Labels follow the authored text and
-explicit scope rules. They have not been validated by human annotators.
+The stories, identifiers, people, code references and labels describe fictional
+projects. Labels follow the record text and explicit query rules. The report's
+[Construction and review](../report/report.html#construction-and-review) section
+describes dataset generation and the tools used for review.
 
-A second model-assisted reviewer inspected twenty of 188 queries against their records
-and rules before the first full comparison, without retrieval scores: ten
-development and ten held-out queries. This bounded review found two missing
+A review covered twenty of 188 queries against their records and rules before
+the first full comparison, without retrieval scores: ten development and ten
+held-out queries. It found two missing
 grade-1 illustrations. The Orchard trial illustrates the rain rule in its
 combined quota/rain question; the Tide revised-sailing observation illustrates
 the twelve-minute boarding deadline. These labels and rationales were corrected
 from the text before scoring. No engine scores informed those corrections.
 
-Family separation is not an independently blinded benchmark. The authoring
-process could see both splits, and scenario types recur across them. The review
-does not establish exhaustive relevance judgments or human annotation quality.
+The authoring process could see both splits, and scenario types recur across
+them. The twenty-query review was a sample, not an exhaustive relevance assessment.
 
 ## Searchable text and relevance
 
@@ -39,8 +37,7 @@ Only record title and body are searchable. Query/record IDs, family labels,
 relevance mappings, rationales, authorship fields and applicability rules must
 not be appended to indexed or embedded text. Body SHA-256 values bind exact UTF-8
 bytes. Code paths and provenance source IDs refer to invented story-world
-material, not actual source files. A `verified` field records a fictional
-judgment; it is not an authenticated verification receipt.
+material. A `verified` field is a status assigned within a story.
 
 - Grade 3 directly answers a query or an independently requested component.
 - Grade 2 supplies an explicit partial answer or corroboration.
@@ -49,17 +46,17 @@ judgment; it is not an authenticated verification receipt.
 
 Recall, precision and reciprocal rank treat grades 1–3 as relevant. nDCG uses
 their graded gains. Relevance is judged at the record-ID level; embedding
-similarity is the ranker's score, not a separate relevance oracle. Multiple
+similarity is the ranker's score, not a separate relevance label. Multiple
 relevant records may supply distinct answer components, but the evaluator does
 not test whether a downstream system synthesizes them correctly.
 
 Each split contains 79 answerable queries and fifteen unanswerable requests.
 Quality averages use the answerable queries. Unanswerable requests have empty
-gold sets and are reported separately. The convention asks whether a record
+relevance sets and are reported separately. The convention asks whether a record
 establishes a positively requested claim. Some retained counterevidence is
 therefore counted as a false retrieval even though it could help an answerer
 reject a false premise. Returned candidates are not generated answers, and this
-fixture does not measure hallucination or an answerability threshold.
+dataset does not measure hallucination or an answerability threshold.
 
 ## Applicability and coverage
 
@@ -67,14 +64,10 @@ Ordinary queries search one of six declared synthetic workspaces, each with five
 related projects and their authors. Tasks are unrestricted unless a query
 explicitly selects one. Other queries restrict owners, status, epistemic state,
 revision or evidence availability. Eligibility is applied separately from
-similarity ranking. Successful synthetic filtering is not proof of real access
-control.
+similarity ranking. These are dataset filters, not authentication checks.
 
-The fixture retains its stable schema identifiers, including `hippo-corpus/v1`
-and `hippo-queries/v1`, for compatibility. The fictional owner name `Hive` denotes
-shared story-world decisions. These identifiers do not name a released product
-or confer authority. Levels 1, 2 and 3 label synthetic episodes/facts, private
-preferences/syntheses, and shared verified decisions respectively.
+The schemas are `hippo-corpus/v1` and `hippo-queries/v1`. Levels 1, 2 and 3 label
+episodes/facts, private preferences/syntheses, and shared decisions respectively.
 
 Coverage includes identifiers, paraphrases, code references, preferences,
 decisions, observed trials, unsupported hypotheses, old/current/revoked revisions,
@@ -100,23 +93,21 @@ are clean English prose with short invented code references, not noisy chat
 histories, real code repositories, multilingual data or an exhaustive adversarial
 workload. Template similarity, sparse labels and small pools limit generalization.
 
-## Validation and publication identity
+## Validation and dataset version
 
-Fixture validation checks schema and field types, exact body hashes, duplicate
+Dataset validation checks schema and field types, exact body hashes, duplicate
 IDs, duplicate query text plus rules, relevance eligibility, broken references,
 supersession cycles, contradictory source availability, embedded oracle IDs,
 declared family leakage and exact-text cross-split leakage. Near-duplicate token
-overlap is advisory. These checks do not establish semantic independence,
-external source existence, access-control correctness or factual truth.
+overlap is advisory. The audit catches structural problems; interpreting label
+quality and semantic overlap requires examining the records and queries.
 
-The publication version is `synthetic-workspace-stories-v2-public1`. It changes
-only the descriptive version/authorship envelope of the original final inputs.
+The dataset version is `synthetic-workspace-stories-v2-public1`. It changes
+only the dataset version and authorship metadata of the original final inputs.
 All record and query objects, searchable text, rules, rationales and relevance
-labels are preserved. The complete fixture digest consequently differs from the
-historical envelope; release-validation results bind the publication fixture
-identity. Historical scores must not be relabeled as executions of this export.
+labels are preserved. The complete dataset digest consequently differs from the
+earlier metadata. See [dataset and result identities](../docs/PUBLIC_EVIDENCE.md)
+for the relationship between these versions and their measurements.
 
-The generic supplied-trace scenarios are a separate, explicitly versioned
-derivative. They test exact result/trace comparison, including deliberately
-incorrect observations. Their success does not demonstrate a storage engine,
-authenticated service, persistence, session replacement or recovery system.
+The [scenario data](../scenarios/cases.json) are versioned separately. Their paired
+correct and incorrect traces test exact comparison of supplied observations.

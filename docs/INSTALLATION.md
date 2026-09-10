@@ -1,14 +1,13 @@
 # Installation and reproduction
 
 The initial supported platform is **Windows x64 with CPython 3.13**. The release
-validation used CPython 3.13.15. Linux and macOS have not been qualified. The
+validation used CPython 3.13.15. Linux and macOS have not been tested. The
 staging lock selects Windows binaries, including CPU-only PyTorch; it performs
 no source builds and does not install packages globally.
 
-I provide a source-first workbench rather than a background service. Run these
-PowerShell commands from the downloaded or cloned repository root. Git is
-optional for source archives: each run still hashes the actual source files,
-but an archive records its Git commit as unavailable rather than inventing one.
+Run these PowerShell commands from the downloaded or cloned repository root.
+Git is optional: a source archive records `git_head: null` and still hashes
+the source files used by each run.
 
 ## Create an isolated environment and acquire dependencies
 
@@ -37,11 +36,10 @@ Weights and third-party binaries are not included in the source release. The
 network acquisition path requires no account or authentication.
 
 The artifact staging ceiling is 3 GiB. Wheels, installed dependencies, model
-files, local receipts and caches live below `.artifacts/`; the Python virtual
-environment is separate. A failure is retained as a timestamped local receipt.
-Do not retry by changing pins or removing integrity checks. An incomplete
-download or populated install target requires diagnosis; keep its receipt.
-The release does not automatically delete existing work.
+files, test records and caches live below `.artifacts/`; the Python virtual
+environment is separate. A failure produces a timestamped diagnostic record.
+Inspect it before retrying an incomplete download or a populated install target.
+Keep the pinned versions and integrity checks when reproducing these results.
 
 To use another artifact directory, give the same path to all three staging
 actions and to every command that performs retrieval or declares a protocol:
@@ -54,11 +52,11 @@ actions and to every command that performs retrieval or declares a protocol:
 ```
 
 Only the selected `site` is inserted into the import path. The supervised
-inference child runs with `-I -S`; staged `.pth` files are never executed.
+worker runs with `-I -S`; staged `.pth` files are never executed.
 The default test suite expects the default `.artifacts/site` for its small
 custom-root regression probes. Use the default setup for release validation.
 
-## Check fixtures, evaluator and supplied scenarios
+## Check the dataset, evaluator and scenarios
 
 ```powershell
 .\.venv\Scripts\python.exe -I workbench.py validate --out .artifacts\checks\fixtures.json
@@ -71,15 +69,14 @@ custom-root regression probes. Use the default setup for release validation.
 
 All commands above should exit zero except the deliberate `incorrect.json`
 check, which must exit one and reject every supplied incorrect case. Test
-receipts distinguish no discovery, zero executed tests, failures and successful
+records distinguish no discovery, zero executed tests, failures and successful
 execution. A typo in `--pattern` cannot silently run another selection.
 
 ## Reproduce the established five-method comparison
 
-The historical query split is already known. These commands declare and reuse
-the previously selected 240-token / 32-overlap / lexical-weight-1 / RRF-60
-configuration; they perform **no new selection or blinded hold-out experiment**.
-They preserve both existing splits and their labels.
+These commands reuse the selected 240-token / 32-overlap / lexical-weight-1 /
+RRF-60 configuration and both existing query splits. The held-out queries are
+already known, so this is a fixed-configuration reproduction.
 
 ```powershell
 .\.venv\Scripts\python.exe -I workbench.py prepare-reproduction --out .artifacts\protocol.json
@@ -93,23 +90,23 @@ Run these sequentially. Each `run` defaults to lexical, BGE, MiniLM, lexical+BGE
 and lexical+MiniLM. The evaluator permits one active inference process and at
 most two compute threads and a 2 GiB RSS setting. The semantic path samples its
 own RSS after model load and every encode batch, raising an error above the
-limit. The supervisor polls the owned worker every 100 ms and terminates it
+limit. The supervisor polls the run's inference process every 100 ms and terminates it
 on a sampled RSS excess or the default 900-second run bound. These abort checks
 are not an OS hard allocation ceiling. Each method rebuilds its index; models
 run on the CPU. Seed 17 is passed to `torch.manual_seed` at model load; eval mode
 and `torch.inference_mode` do not establish cross-host determinism.
 
-The protocol binds current source-file, dependency, fixture, configuration and
+The protocol binds current source-file, dependency, dataset, configuration and
 model identities. Editing any bound input invalidates the declaration; create
-a new declaration and new output directory after a deliberate change. Never
-relabel an earlier result as newly produced. Existing run outputs and protocol
-files are not overwritten. A missing model is `NOT_RUN`, not a synthetic score.
+a new declaration and output directory after a deliberate change. Existing run
+outputs and protocol files are not overwritten. A missing model is `NOT_RUN`
+and has no retrieval score.
 
 The comparison command preserves its JSON and requested HTML/Markdown report
 before returning nonzero for incompatible inputs or a detected quality
 regression. Differences in observed latency are reported but are not treated
-as a quality regression. Do not compare changed fixtures or dependency/model
-identities by bypassing its compatibility rules.
+as a quality regression. Changed dataset, dependency or model identities can
+make runs incompatible; the comparison report records the reason.
 
 For a lexical-only quick execution, use `run --methods lexical --split
 development --out <new-directory>`. The models are not needed for this path,
@@ -126,12 +123,12 @@ The [bundled implementation bounds](INTERFACES.md#bounds-of-the-bundled-implemen
 describe the lexical SQL/term caps and model-token limits relevant to new inputs.
 
 Each completed run emits `run.json.gz`, `analysis.json`, `report.json`,
-`report.md`, `report.html`, an execution plan and a sampled resource receipt.
-The compressed bundle is the canonical machine-readable observation, while
-the static report is a view. Open `report.html` directly; no web server is used.
+`report.md`, `report.html`, an execution plan and sampled resource measurements.
+The compressed bundle contains the complete machine-readable observations.
+Open the static `report.html` directly; no web server is used.
 [Interfaces](INTERFACES.md) describes external adapters and supplied traces.
 
-Inference locks protect live supervisor and worker identities using process
-creation time as well as PID. Proven-abandoned current-format claims may be
-reclaimed. Malformed, legacy or ambiguous claims fail closed with an explicit
-error; do not blindly delete a lock that could belong to an active run.
+Inference locks identify the supervisor and worker by process creation time and
+PID. A lock can be reclaimed when both recorded owners are proven absent.
+Malformed, legacy or ambiguous locks produce an error and require inspection;
+an active run's lock must remain in place.
