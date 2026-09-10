@@ -2,7 +2,7 @@
 
 ## A Workbench for Lexical, Semantic, and Hybrid Search
 
-Nathan John Chandrasekar
+Nathan Chandrasekar
 
 [ORCID 0009-0003-9702-8164](https://orcid.org/0009-0003-9702-8164)
 
@@ -10,41 +10,45 @@ Technical report accompanying proposed software version 1.0.0. Release candidate
 
 ### Abstract
 
-I built a standalone workbench to compare retrieval methods under explicit, inspectable conditions. It joins versioned synthetic fixtures, lexical and local semantic retrieval, result-contract checking, compatible-run comparison, and static reporting. I compare SQLite FTS5 BM25, BGE-small-en-v1.5, all-MiniLM-L6-v2, and two reciprocal-rank-fusion combinations over 300 records and 188 queries. The release re-evaluates the established configuration on both known query splits, without tuning or changing record-level labels. On the 79 answerable queries in the original held-out split, BGE obtains nDCG@10 of 0.9588 and recall@10 of 0.9831; MiniLM obtains 0.9379 and 0.9863. Lexical recall is 0.9363. A repeated execution preserves all quality aggregates, while timing varies materially. All methods return candidates for each of the fifteen unanswerable queries. I interpret the results as a reproducible comparison on this small synthetic corpus, not an answerability test or a general model ranking.
+I compare lexical, semantic, and hybrid retrieval over synthetic project records: how do ranking quality, recall, and query latency differ when methods share the same corpus and eligibility rules? I built a standalone workbench that makes the comparison reproducible and its observations inspectable. It evaluates SQLite FTS5 BM25, BGE-small-en-v1.5, all-MiniLM-L6-v2, and two equal-weight reciprocal-rank-fusion hybrids using 300 records and 188 labeled queries. Each query ranks eligible records drawn from the 291 records with retained bodies. The report uses an established configuration on both known query splits, without retuning or changing labels. On the 79 answerable held-out queries, BGE obtains nDCG@10 of 0.9588 and recall@10 of 0.9831; MiniLM obtains 0.9379 and 0.9863; lexical recall is 0.9363. The hybrids do not consistently improve over their semantic components. A repeat preserves every quality aggregate while query timings change materially. All five methods returned nonempty candidate lists for the fifteen empty-relevance queries. No answerability decision rule was evaluated.
 
-### Motivation and contribution
+## 1. Contribution and retrieval task
 
-Retrieval comparisons are difficult to interpret when candidate eligibility, text truncation, relevance labels, or failure handling change between methods. A plausible ranked list can conceal an ineligible record, incomplete evidence, or an execution that never occurred. I make those conditions visible alongside retrieval scores.
+Retrieval comparisons are difficult to interpret when eligibility, truncation, labels, or failure handling differ between methods. A plausible ranked list can conceal an ineligible record, incomplete evidence, or an execution that never occurred. I make those conditions visible alongside retrieval scores.
 
-The contribution is the evaluation software and documented comparison. I do not propose a new ranking algorithm. The workbench preserves complete fixture records, exposes passage offsets, checks observations against explicit contracts, and refuses misleading comparisons across incompatible inputs. A future retrieval implementation can supply observations through the same adapter boundary.
+The task is to retrieve relevant records about fictional project facts, decisions, preferences, observations, and code references. Queries can request current or historical evidence, distinguish same-name entities, or require several records. Both splits use the same corpus; each query ranks only its eligible records, rather than all 300 fixture objects.
 
-The release is source-first research software for the tested Windows CPython 3.13 x64 environment. It includes reusable code, synthetic fixtures, pinned acquisition recipes, tests, new raw observations, and this report. The public evidence supports the numerical results directly; acquisition and inference require no private repository or hosted model service.
+The contribution is the evaluation software and documented comparison, not a new ranking algorithm. The workbench combines versioned fixtures, interchangeable retrieval adapters, complete-record checks, result-contract validation, compatible-run comparison, and static reports. A future implementation can supply observations through the same adapter boundary. The source distribution includes the code, pinned acquisition recipes, tests, raw observations, and this report.
 
 <!-- pagebreak -->
 
-## 1. Corpus, labels, and applicability
+## 2. Fixtures and applicability
 
-The corpus contains thirty synthetic story families with ten records each. The 188 queries are divided into 94 development and 94 original held-out queries, from fifteen families per split. Each split contains 79 answerable queries and fifteen requests with empty relevance sets. Every retrieval run indexes the complete corpus. The original split withheld query scoring and relevance use during configuration selection; it did not withhold documents from indexing.
+The corpus contains thirty synthetic story families with ten records each. Its 300 records comprise 253 current, 29 superseded, seven disputed, two revoked, and nine deleted records. The nine deleted records have null bodies: their metadata remains in the fixture, but neither their title nor body is indexed. Each method indexes the same 291 retained-body records.
 
-OpenAI Codex generated the stories, identifiers, code references, records, queries, and labels. They do not represent a real project corpus. A second model-assisted reviewer inspected twenty queries against their records and rules before the original full comparison, ten per split, without retrieval scores. That bounded review identified two missing grade-1 illustrations: an Orchard rain-rule trial and a Tide boarding-deadline observation. The labels and rationales were corrected from the text before scoring. There was no human annotation study or exhaustive independent relevance assessment.
+The 188 queries form development and original held-out splits of 94 queries from fifteen families each. Each split has 79 answerable queries and fifteen with empty relevance sets. The original split withheld query scoring and relevance use during configuration selection; documents from both splits were available for indexing. The held-out queries are now known.
 
-### What a relevance label means
+### Construction and bounded review
 
-Grade 3 directly answers a query or an independently requested component. Grade 2 supplies an explicit partial answer or corroboration. Grade 1 supplies useful illustration or context without establishing the answer. An omitted record is nonrelevant or ineligible under the declared rules. Labels are attached to record IDs, not to embedding neighborhoods. Each query includes a reviewable rationale and explicit applicability rules.
+OpenAI Codex generated the stories, identifiers, code references, records, queries, and labels; they do not represent a real project corpus. Before the original full comparison, a second model-assisted reviewer inspected twenty queries, ten per split, against their records and rules without retrieval scores. That bounded review found two missing grade-1 illustrations: an Orchard rain-rule trial and a Tide boarding-deadline observation. The labels and rationales were corrected from the text before scoring. There was no human annotation study or exhaustive independent relevance assessment.
 
-Ordinary queries search one of six synthetic workspaces containing five related projects and their authors. Other queries constrain project, task, owner, status, epistemic state, revision, or source availability. Eligibility is computed before ranking. The fictional shared owner and verified status describe story-world judgments; successful filtering does not establish authenticated access control.
+### Relevance and eligibility
+
+Grade 3 directly answers a query or an independently requested component. Grade 2 supplies an explicit partial answer or corroboration. Grade 1 supplies useful illustration or context without establishing the answer. An omitted record is nonrelevant or ineligible under the query's rules. Labels attach to record IDs, not embedding neighborhoods; each query includes a reviewable rationale.
+
+Ordinary queries select one of six synthetic workspaces, each containing five related projects and their authors. Other rules constrain project, task, owner, status, epistemic state, revision, or evidence availability. Eligibility is computed before ranking. The shared-owner and verified-status fields describe fictional judgments, not authenticated authority.
 
 ### Coverage and candidate pools
 
-The records include decisions, preferences, observations, unsupported hypotheses, same-name entities, and old/current disagreements. There are 253 current, 29 superseded, seven disputed, two revoked, and nine deleted records. The nine deleted bodies are null, leaving 291 indexable records. Thirty questions request multiple records. Six questions target trial observations; six target evidence in the last paragraph of bodies longer than 1,000 characters.
+Thirty questions request multiple records; six target trial observations; six target evidence in the final paragraph of bodies longer than 1,000 characters. Coverage also includes unsupported hypotheses, supersession, disagreement, preferences, and missing or deleted evidence.
 
-Across queries, eligible pools have minimum, median, and maximum sizes of 1, 36, and 43. Fifty of 158 answerable queries have at most ten eligible records, 25 in each split. Their recall@10 can be easy. I retain every query in the main analysis and separately describe the larger-pool subset. Story structure and scenario types recur across splits, so family separation does not make this an independently blinded benchmark.
+Eligible pools have minimum, median, and maximum sizes of 1, 36, and 43. Fifty of 158 answerable queries have at most ten eligible records, 25 per split. I retain all queries in the primary analysis and describe the larger-pool subset alongside the results. Repeated story structure and a shared authoring process limit the independence of the query families.
 
-Only title and body enter searchable text. IDs, labels, rationales, family assignments, and rules remain evaluator metadata. Fixture audits check broken references, exact body hashes, duplicate cases, contradictory eligibility, supersession cycles, and declared split leakage. They cannot certify semantic independence or factual truth.
+Only title and body are searchable. IDs, labels, rationales, family assignments, and rules remain evaluator metadata. Fixture audits check references, body hashes, duplicate cases, eligibility contradictions, supersession cycles, and declared split leakage. These checks do not establish semantic independence or factual truth.
 
 <!-- pagebreak -->
 
-## 2. Retrieval methods and metrics
+## 3. Retrieval methods and metrics
 
 ### Shared retrieval contract
 
@@ -56,7 +60,7 @@ Each method builds an experimental index from the same records, searches a suppl
 
 Title and body are chunked separately with each model's fast tokenizer, a 240-token budget including special tokens, and 32-token overlap. Every substring is retokenized to verify the limit. Character and UTF-8 byte offsets bind passages to retained text; no full record is silently truncated. Each semantic index contains 588 chunks. Query limits include the instruction prefix and special tokens; overlong queries fail explicitly. Search scans normalized vectors with NumPy dot products after eligibility filtering, then takes the best passage score per record. This is exact cosine scanning, not a production sqlite-vec service.
 
-**Hybrid.** Each hybrid sums weighted reciprocal ranks from lexical and semantic record lists: weight / (60 + rank), with one-based ranks. Both weights equal one. Fusion uses each component's eligible result list before taking the final top ten. This implementation applies an established fusion method [4]; I make no algorithmic novelty claim.
+**Hybrid.** Each hybrid sums weighted reciprocal ranks from lexical and semantic record lists: weight / (60 + rank), with one-based ranks. Both weights equal one. Fusion uses each component's eligible result list before taking the final top ten. This applies reciprocal-rank fusion [4].
 
 ### Metric definitions
 
@@ -66,103 +70,117 @@ The four quality metrics are macro means over 79 answerable queries per split. T
 
 <!-- pagebreak -->
 
-## 3. Protocol and evidence identity
+## 4. Fixed-configuration protocol
 
-The earlier experiment declared four development configurations: 128 or 240 tokens, crossed with lexical fusion weights one or two; semantic weight one, overlap 32, RRF constant 60, k=10, and seed 17 were fixed. Selection used mean answerable development nDCG across the four semantic/hybrid methods. Differences within 0.005 used fewer chunks, then lexical weight one, as tie breaks. The chosen 240-token, equal-weight setting fell within that tie band and used fewer chunks. This was a bounded engineering selection, not evidence of an optimal configuration.
+The retained standalone executions use the previously selected 240-token chunk budget, 32-token overlap, equal lexical/semantic fusion weights, RRF constant 60, k=10, and seed 17. The earlier bounded selection compared four declared development configurations; its procedure is documented in the [evidence lineage](../docs/PUBLIC_EVIDENCE.md). It did not establish an optimal configuration.
 
-I use that setting unchanged for this release. The historical held-out queries are already known. The three new executions are a development re-evaluation, a primary held-out re-evaluation, and a held-out repeat. No new configuration was selected, no held-out score informed tuning, and no relevance label was changed to improve results. The primary pass remains primary even though the repeat ran faster.
+I report the existing development re-evaluation, primary held-out re-evaluation, and held-out repeat. The original held-out queries were already known. No configuration or label was changed for this editorial revision, and no model benchmark was rerun. The primary pass remains primary even though the repeat was faster. Tables and the figure are regenerated from the same raw observations; Appendix A records their identities.
 
-### Distinguishing earlier data from this export
+## 5. Retrieval quality
 
-There are three identities: the earlier experiment, the standalone distribution, and new release validation. The public fixture changes the earlier version/authorship envelope while preserving every record and query object, including text, labels, rules, rationales, and body hashes. Generic supplied-trace examples are an explicitly versioned derivative. Earlier raw archives are not represented as outputs of the release code.
+The primary held-out pass executed 470 method/query searches. Table 1 averages the 79 answerable held-out queries for each method; the fifteen empty-relevance queries enter separate diagnostics. All three retained runs passed result-contract validation.
 
-New bundles record the generating software commit, individual evaluator source hashes, fixture/configuration/dependency digests, interpreter identity, and exact model manifests. The report builder rescored the public raw bundles rather than copying historical tables. A separate provenance inspection found matching earlier/new ranked lists on the unchanged query objects, but the ordinary comparison guard correctly rejects that cross-envelope pair. The publicly reproducible numerical evidence here is the new standalone execution.
-
-{{MEASUREMENTS_ID}}
-
-### Local setup observations
-
-These measurements come from a Windows x64 host with an Intel Core i7-1370P, CPython 3.13.15, PyTorch 2.9.1+cpu, Transformers 4.57.1, tokenizers 0.22.1, and NumPy 2.3.4. The hash-checked 29-wheel lock and two immutable model revisions define acquisition. The workload used one owned inference process. It was not a dedicated performance laboratory; host scheduling, file-page state, and other system load were not controlled.
-
-{{SETUP_TABLE}}
-
-Setup and indexing are one observation per method in the primary held-out process. Setup includes loading/import work; indexing includes tokenization and passage encoding. Methods run sequentially, so later methods reuse imported libraries and cached pages. These are not independent cold-start comparisons and do not justify a model-load speed ratio.
-
-<!-- pagebreak -->
-
-## 4. Measured retrieval quality
-
-The primary held-out pass executed 470 method/query searches. Each row below averages the 79 answerable queries for that method. Precision's attainable mean ceiling is 0.2000 because the relevance sets are sparse; it should not be interpreted without that denominator. All three public runs passed result-contract validation.
+**Table 1. Primary held-out results, 79 answerable queries.**
 
 {{QUALITY_TABLE}}
 
 {{QUALITY_FIGURE}}
 
-BGE has the highest nDCG and MRR on this fixed corpus. MiniLM retrieves a slightly larger fraction of labeled records, while its lower nDCG reflects their ordering and grades. Both semantic methods exceed the lexical baseline in aggregate recall. The equal-weight hybrids do not consistently improve over their semantic components. I regard BGE as the first ranking candidate for this particular fixture and MiniLM as a useful lower-cost comparator, rather than choosing a universal winner.
+On this split, the attainable mean precision@10 is 158 / (79 x 10) = 0.2000: there are 158 relevant record assignments across the answerable queries, with no gold set larger than ten. Precision divides by ten slots even when fewer records return. This ceiling is specific to the held-out labels.
 
-The development results are also retained. They are descriptive re-evaluation of known inputs, not another opportunity to select a configuration.
+BGE has the highest nDCG and MRR; MiniLM retrieves a slightly larger fraction of the labeled records. Both semantic methods exceed lexical recall. FTS+BGE trails BGE on all four quality metrics. FTS+MiniLM exceeds MiniLM on nDCG alone, so equal-weight fusion does not consistently improve on its semantic component.
+
+<!-- pagebreak -->
+
+### Development, repetition, and larger pools
+
+Development results are a descriptive re-evaluation of known inputs, not another configuration-selection opportunity. Development has 170 relevant record assignments across its 79 answerable queries, giving a precision@10 ceiling of 170 / 790 = 0.21519. The difference from held-out follows from label counts, not rounded achieved scores.
+
+**Table 2. Development results, 79 answerable queries.**
 
 {{DEVELOPMENT_TABLE}}
 
-The held-out repeat preserves every quality aggregate. Independent arithmetic recomputed recall, precision, MRR, and nDCG from raw ranked IDs and agreed with evaluator output to 1e-12. Repetition verifies stability under these conditions; it does not create an independent sample, a confidence interval, or evidence of statistical significance.
+The held-out repeat preserves every quality aggregate. Separately written arithmetic recomputed recall, precision, MRR, and nDCG from raw ranks and agreed with the evaluator to 1e-12. This repeat checks stability on the same inputs; it does not supply independent samples or statistical significance.
 
-<!-- pagebreak -->
+All 25 answerable held-out queries with at most ten eligible candidates obtained recall and nDCG of one for every method. Table 3 retains the other 54 answerable queries, selected by pre-existing pool size rather than retrieval success. This existing descriptive subset leaves all 79 queries in the primary result. The relative recall and nDCG ordering remains the same, with larger gaps after the uniformly perfect cases are set aside.
 
-## 5. Latency, resources, and observation checks
-
-Warm latency covers 94 successive distinct requests per method after index construction. The median is p50; p95 is the nearest-rank 95th percentile. Values include eligibility construction, query encoding/search, full-record fetch, and fidelity hashing. They exclude index setup and answer generation. I report the primary pass and repeat together rather than selecting the faster number.
-
-{{LATENCY_TABLE}}
-
-The primary held-out worker took 60.496 seconds, compared with 34.159 seconds for its repeat. Quality stayed fixed while observed cost changed. Library initialization, page caching, scheduling, and workload effects were not isolated; I cannot attribute the difference to a single cause. Lexical was the fastest independent retrieval path. MiniLM was faster than BGE on these observations, but later hybrid timings do not imply that fusion itself makes encoding faster.
-
-{{RESOURCE_TABLE}}
-
-The supervisor sampled the owned process every 100 ms with a 2 GiB RSS setting and a 900-second execution bound. All three runs exited zero with no recorded resource failure. The observed maxima remained below 490 MiB. These sampled receipts are not OS-enforced allocation ceilings or universal capacity guarantees. They exclude unrelated processes and do not measure energy consumption.
-
-### Fidelity and failure visibility
-
-The primary held-out pass performed 3,843 complete-record fetch checks: 723 lexical and 780 for each semantic/hybrid method. Body, provenance, complete-record, synthetic scope, owner, status, and revision mismatch counts were zero. The checker distinguishes exact retained payloads from ranking relevance. A correct fetch can still be an irrelevant answer candidate.
-
-The clean source-archive validation ran the applicable evaluator suite, fixture validation, and supplied scenarios using independently acquired dependencies. Twelve correct traces were accepted and twelve deliberate incorrect traces were rejected. A missing dependency probe exited nonzero, reported APSW_NOT_STAGED and NOT_RUN, and emitted zero query observations. Unmatched smoke discovery also failed. Those observations check the evaluator's honesty; they do not establish a deployed memory service.
-
-The release retains regression coverage for failed quality comparisons with reports preserved, empty and wholly unexecuted test discovery, selected artifact-root bootstrap, and live/stale/ambiguous inference-lock ownership. Tests use controlled local fixtures and process observations rather than treating a scripted trace as authenticated system evidence.
-
-<!-- pagebreak -->
-
-## 6. Failure interpretation and limitations
-
-### Candidate pools change what a score can show
-
-All twenty-five answerable held-out queries with at most ten eligible candidates obtained recall and nDCG of one for every method. The following descriptive subset retains the other 54 answerable queries, selected by pre-existing pool size rather than retrieval success. These results expose the contribution of easier pools without removing any case from the principal analysis.
+**Table 3. Descriptive held-out subset with more than ten eligible candidates.**
 
 {{POOL_TABLE}}
 
-### Concrete retained misses
+### Concrete misses and empty-relevance queries
 
-The Slate import question requests column order and preview headings. Both semantic methods return the two grade-3 direct records but miss two grade-2 corroborating records at ten: recall is 0.5, MRR is one, and nDCG is 0.8035. Missing half the labeled records does not mean that neither requested fact was retrieved. Per-query grades and ranked results make the difference inspectable.
+The Slate import question requests column order and preview headings. Both semantic methods retrieve the two grade-3 direct records but miss two grade-2 corroborating records within ten: recall is 0.5, MRR is one, and nDCG is 0.8035. The requested facts are present despite the incomplete supporting set. Per-query grades and ranks expose that distinction.
 
-The Violet calibration identifier question still misses the warmup record under both semantic methods, producing recall of two thirds. Lexical also misses the reference record, producing one third. Recognizing an identifier does not guarantee complete evidence. For the Orchard paraphrase, both hybrids miss a trial record that both semantic-only methods retrieve. Fusion can reorder useful evidence out of the top ten.
+The Violet identifier question misses the warmup record under both semantic methods, giving recall of two thirds; lexical also misses the reference record, giving one third. For the Orchard paraphrase, both hybrids miss a trial record retrieved by both semantic-only methods. Fusion can move useful evidence out of the top ten.
 
-### Unanswerable requests and external validity
-
-Every method returned at least one candidate for all fifteen unanswerable queries in each pass: zero successful abstentions under this fixture. Some requests ask for an approved positive claim while retained records contradict its premise. Under the declared empty-gold convention, counterevidence still counts as a false retrieval, although an answerer might use it to reject the premise. These observations are neither generated hallucination rates nor a tested answerability threshold.
-
-The fixtures are clean English, model-authored stories with short invented code references. They are not real chat logs, multilingual corpora, complete source trees, or human-validated relevance judgments. Their thirty related templates, small pools, sparse labels, and shared authoring process limit generalization. Corpus exposure across query splits further limits claims about unseen-document retrieval.
-
-The workbench tests candidate selection and retained fixture fidelity. It does not evaluate answer synthesis, factual truth, authenticated cross-owner authority, durable ingestion, live session replacement, power-loss recovery, or production containment. Supplied-trace scenarios check observations against literal expectations, not whether a real service produced them. Model cards describe upstream capabilities; their published benchmarks do not establish quality on this corpus. Additional deployment-specific evidence would be needed before using any ranking recommendation operationally.
+All five methods returned nonempty candidate lists for the fifteen empty-relevance queries in each run. No answerability decision rule was evaluated. Some queries ask for an approved positive claim while retained records contradict its premise. Under the empty-gold convention, that counterevidence counts as a false retrieval even though an answerer could use it to reject the premise. These diagnostics show candidate-return behavior under the declared labels, not generated-answer hallucination rates.
 
 <!-- pagebreak -->
 
-## 7. Reproduction and release contents
+## 6. Runtime and resource observations
 
-The source distribution includes evaluator and adapter code, fixture generators and materialized JSON, tests, the CPU wheel lock, model specifications, raw gzip bundles, static per-query reports, this editable manuscript, its builder, and citation/license metadata. Model weights and dependency binaries are acquired separately. The initial supported target is Windows x64 with CPython 3.13; Linux and macOS are unqualified.
+Measurements came from one Windows x64 host using CPython 3.13.15, PyTorch 2.9.1+cpu, Transformers 4.57.1, tokenizers 0.22.1, and NumPy 2.3.4. The 29-wheel lock and immutable model revisions define acquisition. Each run used one owned inference process; host scheduling, file-page state, and other system load were not controlled.
 
-From the repository root, create a local virtual environment and run the three staging actions: wheels, install, and models. The documented acquisition path checks pinned artifacts without authentication. Then validate fixtures and run smoke and trace checks. Declare the established protocol with prepare-reproduction, execute the five methods for development and heldout in fresh output directories, and repeat heldout with the same declaration. The comparison command preserves its artifact and reports before returning nonzero for an incompatible run or detected quality regression.
+**Table 4. Setup and indexing, one observation per method in the primary held-out process.**
 
-The [installation guide](../docs/INSTALLATION.md) gives exact PowerShell commands, bounds, nondefault artifact roots, and expected negative exits. The [results ledger](../results/README.md) links raw observations and checks. The [report build guide](BUILD.md) describes deterministic table/figure regeneration from those observations. Changes to bound inputs require a new declaration and new outputs; no old evidence is relabeled as a new execution. Source archives use explicit archive identity when no Git metadata exists.
+{{SETUP_TABLE}}
 
-I retain the compatibility namespace hippo_eval and stable schema tokens deliberately; they are protocol identifiers, not the public software title. Generic adapters expose build, search, fetch, and close operations and report their identities. Future integrations can reuse result-contract and trace checking without assuming an existing transport or authority service.
+Setup includes loading/import work; indexing includes tokenization and passage encoding. All three passes executed lexical, BGE, MiniLM, hybrid BGE, then hybrid MiniLM in that order. Later methods share an already initialized process and may encounter cached pages. These are not independently cold model starts.
+
+**Table 5. Warm query latency, milliseconds; 94 requests per method per pass.**
+
+{{LATENCY_TABLE}}
+
+Warm latency covers successive distinct requests after index construction. p50 is the median; p95 is the nearest-rank 95th percentile. It includes eligibility construction, query encoding/search, full-record fetch, and fidelity hashing, but excludes index setup and answer generation.
+
+The primary held-out worker took 60.496 seconds and its repeat 34.159 seconds. Quality stayed fixed while latency and elapsed runtime changed. The existing observations do not isolate a cause for differences between development, held-out, or repeat runs. Lexical had the lowest query latency, and MiniLM had lower query latency than BGE in both held-out passes. A later hybrid median below its semantic component's does not establish that fusion accelerates encoding.
+
+**Table 6. Whole-worker sampled memory and elapsed runtime.**
+
+{{RESOURCE_TABLE}}
+
+The supervisor sampled the owned process every 100 ms under a 2 GiB RSS setting and a 900-second execution bound. All runs exited zero without recorded resource failure; observed maxima remained below 490 MiB. Sampling is not an OS-enforced allocation ceiling and excludes unrelated processes. Neither monetary cost nor energy consumption was measured.
+
+<!-- pagebreak -->
+
+## 7. Fidelity checks and evaluator validation
+
+The primary held-out pass performed 3,843 complete-record fetch checks: 723 lexical and 780 for each semantic/hybrid method. Body, provenance, complete-record, synthetic scope, owner, status, and revision mismatch counts were zero. These checks concern retained fixture fidelity; a correctly fetched record can still be irrelevant.
+
+The source archive contains a 171-test evaluator suite. The [editorial validation](../results/validation/editorial-171.json) executed all 171 with zero skips, failures, or errors. The exact downloadable archive is checked separately in the accompanying approval package. The [validation ledger](../results/README.md) keeps each receipt attached to its original source/test identity. The earlier 164-test observation predates seven metadata tests and is historical, not the current archive count.
+
+There are twelve scenario cases, each supplied with a correct trace and a deliberately incorrect trace: two variant sets covering the same twelve cases and 35 steps per set. The checker accepted all twelve correct variants and rejected all twelve incorrect variants. These are not 24 independent scenarios or observations from a deployed system.
+
+The retained validation also includes a missing-dependency probe that exited nonzero, reported APSW_NOT_STAGED and NOT_RUN, and emitted no query observations. Unmatched smoke discovery failed. Regression tests cover comparison failures with reports retained, empty or wholly unexecuted test selections, nondefault artifact-root bootstrap, and live, stale, or ambiguous inference-lock ownership. Their outcomes are finite software checks, not universal guarantees.
+
+## 8. Limitations
+
+The fixtures are clean English, model-authored stories with short invented code references, not human-validated judgments or real project corpora. Thirty related templates, sparse labels, small pools, and shared authorship limit generalization. Documents were available across both query splits, and the original held-out queries were already known at re-evaluation. The bounded model-assisted label review was not academic peer review or independent experimental validation.
+
+The task measures candidate retrieval and fixture fidelity. It does not test answer synthesis, truth, authenticated cross-owner authority, durable ingestion, live session replacement, power-loss recovery, or containment. Supplied traces test the checker against literal expectations. Published model-card benchmarks do not establish results on this corpus. Timing and RSS are local observations from one host; other platforms and deployment workloads remain unqualified.
+
+## 9. Conclusion
+
+Within this fixed experiment, BGE has the highest held-out nDCG@10 and MRR@10. MiniLM has slightly higher recall@10 and lower observed query latency than BGE in both held-out passes. The two tested equal-weight hybrids do not consistently improve on their semantic components. The workbench makes these differences inspectable through pinned inputs, raw observations, record checks, and executable evaluation contracts. The shared synthetic setting and its labels bound the conclusions.
+
+<!-- pagebreak -->
+
+## 10. Reproduction and evidence lineage
+
+The source distribution includes evaluator/adapters, fixture generators and JSON, tests, pinned acquisition recipes, raw gzip bundles, static per-query reports, and this editable manuscript and builder. Model weights and dependency binaries are acquired separately. The supported initial target is Windows x64 with CPython 3.13.
+
+The [installation guide](../docs/INSTALLATION.md) supplies exact PowerShell commands for staging, validation, fixed-protocol runs, comparison, and negative checks. Use new output directories; changing bound inputs requires new declarations and observations. The [results ledger](../results/README.md) links existing runs and the new editorial checks. The [report build guide](BUILD.md) explains automatic tables/figures and exact-input binding. This editorial pass rebuilds presentation and metadata without new retrieval measurements.
+
+The retained hippo_eval namespace and schema tokens are compatibility identifiers. Adapters expose build, search, fetch, and close operations and report their identities; no final product transport or authority service is assumed.
+
+### Appendix A. Evidence identities
+
+The earlier experiment, standalone export, and release-validation runs have separate identities. The public fixture preserves all record/query objects while changing its descriptive envelope; the generic trace scenarios are a versioned derivative. Retained runs record their generating commit, source-file hashes, fixture/configuration/dependency digests, interpreter, and model manifests. The editorial revision does not replace those identities.
+
+The recorded historical/export comparison rejects specifically on identity.fixture_digest. The code compares the complete fixture digest; it does not separately reject fields named version or authorship. The earlier provenance inspection established unchanged record/query objects and matching ranked lists. That does not make the two full fixture identities compatible. The report's numerical support remains the retained public raw observations below.
+
+{{MEASUREMENTS_ID}}
 
 ### References
 
@@ -176,4 +194,4 @@ I retain the compatibility namespace hippo_eval and stable schema tokens deliber
 
 ### Tooling and responsibility
 
-AI use: OpenAI Codex assisted software development, synthetic-fixture and label generation, analysis, review, visualization code, and manuscript preparation. I retain responsibility for the approved published content.
+AI use: OpenAI Codex assisted software development, synthetic-fixture and label generation, analysis, review, visualization code, and manuscript preparation; Anthropic Claude assisted editorial review and revision. I retain responsibility for the approved published content.

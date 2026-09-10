@@ -2,41 +2,46 @@
 
 **A Workbench for Lexical, Semantic, and Hybrid Search**
 
-Nathan John Chandrasekar · [ORCID](https://orcid.org/0009-0003-9702-8164)
+Nathan Chandrasekar · [ORCID](https://orcid.org/0009-0003-9702-8164)
 Proposed software v1.0.0 · release candidate for review
 
-I compare lexical search, two compact local embedding models, and their hybrid
-combinations under one explicit evaluation contract. The research question is
-how these methods differ in ranking quality, recall, and measured local cost
-when they share a fixed corpus, applicability rules, and exact record checks.
+I built this workbench to compare lexical search, two compact local embedding
+models, and their hybrid combinations under one inspectable evaluation contract.
+I ask how ranking quality, recall, and query latency differ when methods share
+the same synthetic project records, eligibility rules, and complete-record checks.
 
-The workbench contains 300 synthetic records and 188 labeled queries. It runs
-SQLite FTS5 BM25, BGE-small-en-v1.5, all-MiniLM-L6-v2, and two weighted
-reciprocal-rank-fusion combinations. It validates fixtures, checks actual
-retrieval observations, distinguishes missing execution from bad retrieval,
-compares compatible runs, and produces JSON, Markdown, and static HTML.
-Twelve supplied-trace examples exercise observable-result checking.
+The corpus has 300 records; the nine deleted records have null bodies, leaving
+291 records whose titles and bodies are indexed. Both query splits use that same
+corpus, and **each query ranks only its eligible records**. The 188 labeled queries
+cover facts, decisions, preferences, observations, code references, historical
+revisions, and requests requiring several records.
 
-## Findings from the standalone re-evaluation
+The workbench runs SQLite FTS5 BM25, BGE-small-en-v1.5, all-MiniLM-L6-v2, and two
+equal-weight reciprocal-rank-fusion combinations. It validates fixtures and
+observations, distinguishes missing execution from retrieval errors, compares
+compatible runs, and produces JSON, Markdown, and static HTML reports. Twelve
+scenario cases each have a correct and a deliberately incorrect trace variant.
+The contribution is the evaluation software and documented comparison.
+
+## Principal findings
 
 On the 79 answerable queries in the original held-out split, BGE has the highest
-nDCG@10 (0.9588); MiniLM has slightly higher recall@10 (0.9863 versus 0.9831).
-Lexical recall is 0.9363. The two equal-weight hybrids do not consistently improve
-over their semantic components. A held-out repeat preserves all quality scores.
-All five methods return candidates for all 15 unanswerable queries, so these
-scores do not establish answerability.
+nDCG@10 (0.9588) and MRR@10 (0.9852). MiniLM has slightly higher recall@10
+(0.9863 versus 0.9831); lexical recall is 0.9363. The two equal-weight hybrids
+do not consistently improve over their semantic components. A held-out repeat
+preserves every quality aggregate. The existing 54-query larger-pool subset is
+reported beside the full analysis, without replacing it.
 
-I report the new primary and repeat timings together: BGE's warm p50 is
-20.74 / 11.69 ms, and MiniLM's is 11.95 / 5.83 ms, each over 94 queries per pass.
-The variation is part of the result. These are local sampled measurements,
-not service guarantees or independently cold model starts.
+Warm p50 latency is reported for the primary and repeat passes together:
+BGE 20.74 / 11.69 ms, MiniLM 11.95 / 5.83 ms, and lexical 2.74 / 1.60 ms,
+each over 94 requests per pass. These timings include eligibility, search,
+full-record fetch, and fidelity hashing. The variation is part of the result;
+its cause was not isolated. No monetary or energy savings were measured.
 
-Read the [technical report](report/report.html), its [PDF](report/report.pdf),
-or [editable manuscript](report/manuscript.md). The [results ledger](results/README.md)
-links the public raw evidence, per-query reports, and validation receipts.
-The assembled candidate executes [171 evaluator tests](results/validation/evaluator-171-candidate.json)
-with no skips or failures. The initial clean source archive independently
-executed 164 tests before the seven metadata checks were added.
+All five methods returned nonempty candidate lists for the fifteen empty-relevance
+queries. No answerability decision rule was evaluated. Under the declared labels,
+counterevidence can count as a false retrieval even when it could help an answerer
+reject a false premise.
 
 ## Installation and quick reproduction
 
@@ -64,20 +69,28 @@ details. The package retains the established 240-token, 32-overlap, equal-weight
 RRF-60 protocol. `prepare-reproduction` binds this protocol to current inputs;
 it does not claim a new blinded experiment or perform configuration selection.
 
-## Interpretation and limits
+## Report, evidence, and tests
 
-I treat the synthetic fixtures as a controlled software evaluation, not a
-human-validated benchmark or proof of general deployment quality. Each query
-split has 79 answerable and 15 unanswerable queries; both use the entire corpus.
-The original held-out split is already known. Small, template-related candidate
-pools limit discrimination and generalization. Candidate retrieval does not
-establish answerability or factual truth, and exact retained bytes do not
-establish semantic relevance. Supplied traces do not validate a real service.
+Read the [technical report](report/report.html), its [PDF](report/report.pdf),
+or the [editable manuscript](report/manuscript.md). The [results ledger](results/README.md)
+links the raw observations, per-query reports, and validation receipts.
+The source archive contains **171 evaluator tests**; the ledger distinguishes
+current editorial/archive checks from earlier receipts. The twelve correct
+trace variants pass and the twelve deliberate incorrect variants are rejected.
 
-See [fixture methodology](fixtures/README.md),
-[evidence identities](docs/PUBLIC_EVIDENCE.md),
-[interfaces](docs/INTERFACES.md), and the
-[adapter boundary](docs/ADAPTER_CONTRACT.md).
+See [fixture methodology](fixtures/README.md), [evidence identities](docs/PUBLIC_EVIDENCE.md),
+[interfaces](docs/INTERFACES.md), and the [adapter boundary](docs/ADAPTER_CONTRACT.md).
+
+## Scope and limits
+
+I treat these model-authored fixtures as a controlled software evaluation,
+not a human-validated benchmark. Each split has 79 answerable and fifteen
+empty-relevance queries. The original held-out split was already known at
+re-evaluation; no configuration was retuned. Shared documents, related story
+templates, sparse labels, and small eligible pools limit generalization.
+Exact retained bytes do not establish relevance or truth, and supplied traces
+exercise the checker rather than a deployed service. Validation is limited to
+Windows x64; runtime and RSS observations are not service guarantees.
 
 ## Citation and license
 

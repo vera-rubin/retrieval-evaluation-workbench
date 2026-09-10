@@ -21,7 +21,7 @@ from hippo_eval.contracts import digest
 
 TITLE = "Reproducible Retrieval Evaluation: A Workbench for Lexical, Semantic, and Hybrid Search"
 SHORT_TITLE = "Reproducible Retrieval Evaluation"
-AUTHOR = "Nathan John Chandrasekar"
+AUTHOR = "Nathan Chandrasekar"
 REPOSITORY = "https://github.com/vera-rubin/retrieval-evaluation-workbench"
 ORDER = ("lexical", "bge", "minilm", "hybrid_bge", "hybrid_minilm")
 LABELS = dict(zip(ORDER, ("FTS5 BM25", "BGE-small", "MiniLM", "FTS+BGE", "FTS+MiniLM")))
@@ -124,7 +124,7 @@ def substitutions(runs):
         "SETUP_TABLE": markdown_table(["Method", "Load seconds", "Index seconds"], setup_rows),
         "RESOURCE_TABLE": markdown_table(["Run", "Peak RSS MiB", "RSS samples", "Elapsed seconds"], resource_rows),
         "POOL_TABLE": markdown_table(["Method", "Queries", "Recall@10", "nDCG@10"], pool_rows),
-        "QUALITY_FIGURE": "![Recall and nDCG on the 79 answerable heldout queries; values from the first release heldout run.](figures/quality.svg)",
+        "QUALITY_FIGURE": "![Figure 1. Recall and nDCG on the 79 answerable held-out queries in the primary pass.](figures/quality.svg)",
         "MEASUREMENTS_ID": markdown_table(["Raw bundle directory", "SHA-256 of run.json.gz"], identity_rows),
     }
 

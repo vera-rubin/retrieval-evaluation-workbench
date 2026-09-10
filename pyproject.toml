@@ -5,7 +5,7 @@ description = "Reproducible local lexical, semantic, and hybrid retrieval evalua
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 license = "Apache-2.0"
-authors = [{name = "Nathan John Chandrasekar"}]
+authors = [{name = "Nathan Chandrasekar"}]
 keywords = ["information-retrieval", "evaluation", "reproducibility"]
 
 [project.urls]

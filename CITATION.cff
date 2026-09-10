@@ -4,7 +4,7 @@ type: software
 title: "Reproducible Retrieval Evaluation: A Workbench for Lexical, Semantic, and Hybrid Search"
 version: 1.0.0
 authors:
-  - given-names: Nathan John
+  - given-names: Nathan
     family-names: Chandrasekar
     orcid: "https://orcid.org/0009-0003-9702-8164"
 repository-code: "https://github.com/vera-rubin/retrieval-evaluation-workbench"
@@ -32,5 +32,6 @@ abstract: >-
   not a peer-reviewed journal publication.
 
   AI use: OpenAI Codex assisted software development, synthetic-fixture and label
-  generation, analysis, review, visualization code, and manuscript preparation.
+  generation, analysis, review, visualization code, and manuscript preparation;
+  Anthropic Claude assisted editorial review and revision.
   I retain responsibility for the approved published content.

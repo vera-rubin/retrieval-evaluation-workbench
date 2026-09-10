@@ -40,6 +40,17 @@ ordinary comparison correctly rejects that cross-envelope pair.
 
 ## Validation receipts
 
+The current editorial candidate [executed all 171 evaluator tests](validation/editorial-171.json)
+from seven test files, with zero skips, failures, or errors. The focused 34-test
+reliability group also passed; fixture validation passed, and the twelve correct
+scenario variants were accepted while their twelve incorrect counterparts were
+rejected. This receipt preserves its observed pre-commit HEAD and binds the
+unchanged evaluator/test files explicitly. It does not claim new model runs.
+The exact downloadable archive is checked separately and bound to the final
+commit, tree, and archive digest in the accompanying approval package.
+
+The receipts below remain historical observations with their original identities.
+
 [Clean-archive validation](validation/clean-archive.json) records 164 applicable
 tests in the initial standalone source checkpoint, including 34 reliability and
 16 standalone tests. It also records fixture validation, 12 correct traces

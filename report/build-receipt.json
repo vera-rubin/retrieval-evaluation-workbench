@@ -14,8 +14,8 @@
       "raw_sha256": "7d58cd828a9d9a763b107b8b1bc72586994a8175c38b2b9d7bc5c7277456bf8b"
     }
   ],
-  "manuscript_sha256": "cd056dfde1f7f5a4bef299d5086f2b67aae5dbd9287d0f59e2740a1a450effb9",
-  "builder_sha256": "2fe30fb2e72bdb9c55e19da4b07cc953777fe3d9ea71d9e33ff6a7e2365a9a95",
+  "manuscript_sha256": "7e70152707fde1b95fce16a4cfb8f035c11230a38d27d5513fe09c6936ff45b5",
+  "builder_sha256": "019da6c742f61c791b63c46d26a66bba8709d8c9c6ed1d8914a34024eb333615",
   "inputs_manifest_sha256": "4ed12495ca4f30b5ec523fc832ca726753f00ff7b8c46c76a2492ce1c1a8746f",
   "dependencies": {
     "reportlab": "4.4.9",
@@ -24,9 +24,9 @@
     "pypdf": "6.10.0"
   },
   "outputs": {
-    "report.md": "a42b9806deca03a93ff673bdc8d4b982b7db926c2074e60e9e97e5511f9e77a1",
-    "report.html": "d71e9c45442c77d04892a5e9a9af53cda6db2fa2a735f1d458866d06084da1c6",
-    "report.pdf": "0742c1a57ec186ed90754002f9a079f3821463de80a41d89ca30c7fd46584300",
+    "report.md": "26406373dd029897dc775be0cb3b119b1f1cf3c7a5ed41ffc97f33507011e40b",
+    "report.html": "0fee50eec73e08ba81182c6c55a516e2945ff1f9cca59c30ebd020437b0f5463",
+    "report.pdf": "4aa136d98cc3530aa8cff0ddb238b68f1507d0a2cfdd2cfab36c691ee7a069d1",
     "figures/quality.svg": "9ef55c1ca57f69386ddd17c9a4c5e1d120e07579d89a75e37da8260c017b2bb3"
   },
   "scope": "Observed synthetic retrieval results; known query splits; no retuning or inferential significance claims"

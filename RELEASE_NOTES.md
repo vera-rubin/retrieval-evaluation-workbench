@@ -3,6 +3,14 @@
 Release candidate prepared for author review. No release date or DOI has been
 assigned, and no publication is implied by the proposed version.
 
+The current editorial candidate uses the public byline Nathan Chandrasekar,
+reorganizes the report around the retrieval task and measured quality, and
+clarifies query eligibility, metric ceilings, trace variants, and validation
+lineage. The closing tooling note includes Anthropic Claude's editorial role.
+These revisions do not change scientific code, fixtures, labels, configurations,
+dependency/model pins, or retained observations. No model benchmark was rerun
+for the editorial pass.
+
 The standalone source distribution includes five local retrieval methods,
 versioned synthetic inputs, eligibility and full-record validation, strict
 result and trace checking, regression comparisons, pinned acquisition,

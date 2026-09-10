@@ -42,3 +42,11 @@ The retained `hippo_eval` Python namespace and `hippo-*` schema tokens are
 compatibility identifiers. They do not change the public software identity or
 grant authority to any fixture or observation. Renaming these protocol tokens
 would create avoidable incompatibility without changing the experiment.
+
+The later editorial revision changes presentation and author metadata, not the
+record/query objects, configurations, acquisition pins, evaluator implementation,
+or raw observations. Its report tables are regenerated from the same bound
+bundles. Earlier measurement and validation receipts keep their original
+identities; new editorial and archive checks are identified separately in the
+[results ledger](../results/README.md). A new report render is not a new retrieval
+experiment, and the historical query holdout is not newly blinded.
